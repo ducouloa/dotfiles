@@ -42,9 +42,94 @@ set printoptions=paper:A4
 let g:load_doxygen_syntax=1
 let g:pyflakes_use_quickfix = 0
 
-" SubSubSection: vim-projects {{{3
+" Plugin: vim-pathogen {{{3
 " --------------------------------
-" /vim-projects/ }}}3
+" copie of the pathogen plugin
+" plugin isolation
+" /vim-pathogen }}}3
+
+" Plugin: vim-fugitive {{{3
+" --------------------------------
+" Out of the box from github bundle/vim-fugitive
+" Git support in git
+" /vim-fugitive/ }}}3
+
+" Plugin: vim-solarized {{{3
+" --------------------------------
+" Out of the box from github bundle/vim-colors-solarized
+" solarized colorscheme for git
+" /vim-solarized/ }}}3
+
+" Plugin: vim-project {{{3
+" --------------------------------
+" Copy of http://www.vim.org/scripts/script.php?script_id=69 v1.4.1
+" Manage vim project in a .vimproject file
+" /vim-project/ }}}3
+
+" Plugin: taskpaper {{{3
+" --------------------------------
+" clone of git://github.com/davidoc/taskpaper.vim.git
+" Manage todo_list the taskpaper way + taskpaper filetype management
+" /taskpaper/ }}}3
+
+" Plugin: vim-startify {{{3
+" --------------------------------
+" clone git://github.com/mhinz/vim-startify
+" Allow to have a startup screen within vim
+" /vim-startify/ }}}3
+
+" Plugin: vim-easymotion {{{3
+" --------------------------------
+" clone git://github.com/Lokaltog/vim-easymotion
+" allow to move faster within vim buffer
+" /vim-easymotion/ }}}3
+
+" Plugin: buffer-explorer {{{3
+" --------------------------------
+" clone git://github.com/widox/vim-buffer-explorer-plugin
+" Visualize opened buffer
+" /buffer-explorer/ }}}3
+
+" Plugin: javacomplete {{{3
+" --------------------------------
+" clone git://github.com/vim-scripts/javacomplete
+" Add code basic java code completion
+" /javacomplete/ }}}3
+
+" Plugin: taglist {{{3
+" --------------------------------
+" clone git://github.com/vim-scripts/taglist.vim
+" Create a Tag menu context of the current buffer
+" /taglist/ }}}3
+
+" Plugin: wikipedia {{{3
+" --------------------------------
+" source TBD
+" filetype + syntax for the mediawiki filetype
+" /wikipedia/ }}}3
+
+" Plugin: jedi-vim {{{3
+" --------------------------------
+" clone of https://github.com/davidhalter/jedi-vim
+" python code completion for vim
+" to initialize the module, jump in and 
+" git submodule update --init
+"
+" That command will clone the jedi library as a submodule
+" /jedi-vim/ }}}3
+
+" Plugin: nerdtree {{{3
+" --------------------------------
+" clone of https://github.com/scrooloose/nerdtree
+" alternative file explorer for vim
+" /nerdtree/ }}}3
+
+" Plugin: tagbar {{{3
+" --------------------------------
+" clone of https://github.com/majutsushi/tagbar
+" Same as taglist but different
+" /tagbar/ }}}3
+
 
 " /Plugins/ }}}2
 

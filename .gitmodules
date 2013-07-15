@@ -1,0 +1,36 @@
+[submodule "_vim/bundle/vim-colors-solarized"]
+	path = _vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized
+[submodule "_vim/bundle/vim-fugitive"]
+	path = _vim/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive
+[submodule "_vim/bundle/taskpaper"]
+	path = _vim/bundle/taskpaper
+	url = git://github.com/davidoc/taskpaper.vim.git
+[submodule "_vim/bundle/vim-startify"]
+	path = _vim/bundle/vim-startify
+	url = git://github.com/mhinz/vim-startify
+[submodule "_vim/bundle/vim-easymotion"]
+	path = _vim/bundle/vim-easymotion
+	url = git://github.com/Lokaltog/vim-easymotion
+[submodule "_vim/bundle/buffer-explorer"]
+	path = _vim/bundle/buffer-explorer
+	url = git://github.com/widox/vim-buffer-explorer-plugin
+[submodule "_vim/bundle/javacomplete"]
+	path = _vim/bundle/javacomplete
+	url = git://github.com/vim-scripts/javacomplete
+[submodule "_vim/bundle/vim-powerline"]
+	path = _vim/bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline
+[submodule "_vim/bundle/taglist"]
+	path = _vim/bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim
+[submodule "_vim/bundle/jedi-vim"]
+	path = _vim/bundle/jedi-vim
+	url = git://github.com/davidhalter/jedi-vim
+[submodule "_vim/bundle/nerdtree"]
+	path = _vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree
+[submodule "_vim/bundle/tagbar"]
+	path = _vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar
