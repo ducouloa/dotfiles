@@ -1,0 +1,45 @@
+!! CMUX
+cmux*termName:screen-256color
+cmux.urlLauncher: /usr/local/bin/xxxterm
+cmux.geometry: 100x40
+cmux*font: -*-terminus-medium-*-*-*-*-120-*-*-*-*-iso8859-1
+cmux.background: #222222
+! cmux.backgroundPixmap: /home/aducoulombier/wres/drawable/cmus.jpg
+cmux*transparent: true
+cmux*shading: 100
+cmux.foreground: #AAAAAA
+cmux.scrollBar: off
+cmux*keysym.C-F7: command:\033]710;xft:Terminus:size=9;\007
+cmux*keysym.C-F8: command:\033]710;xft:Terminus:size=10;\007
+cmux.perl-ext:
+cmux.perl-ext-common:
+cmux*color0:  #1E2320
+cmux*color1:  #705050
+cmux*color2:  #60b48a
+cmux*color3:  #dfaf8f
+cmux*color4:  #506070
+cmux*color5:  #dc8cc3
+cmux*color6:  #8cd0d3
+cmux*color7:  #dcdccc
+cmux*color8:  #709080
+cmux*color9:  #dca3a3
+cmux*color10: #93ff6f
+cmux*color11: #f0dfaf
+cmux*color12: #94bff3
+cmux*color13: #ec93d3
+cmux*color14: #93e0e3
+cmux*color15: #ffffff
+cmux*keysym.Home: \033[1~
+cmux*keysym.End:  \033[4~
+cmux.keysym.F1:   \033OP
+cmux.keysym.F2:   \033OQ
+cmux.keysym.F3:   \033OR
+cmux.keysym.F4:   \033OS
+cmux.keysym.F5:   \033[15~
+cmux.keysym.F6:   \033[17~
+cmux.keysym.F7:   \033[18~
+cmux.keysym.F8:   \033[19~
+cmux.keysym.F9:   \033[20~
+cmux.keysym.F10:  \033[21~
+cmux.keysym.F11:  \033[23~
+cmux.keysym.F12:  \033[24~
