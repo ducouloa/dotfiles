@@ -53,9 +53,3 @@ highlight default logALERT   ctermfg=5    guifg=#CC0000
 "highlight default loghERROR   ctermfg=9
 "highlight default loghALERT   ctermfg=1
 "
-
-nnoremap <buffer> <silent> zo
-                            \ :call SyncFold('open')<CR>
-nnoremap <buffer> <silent> zc
-                            \ :call SyncFold('close')<CR>
-command! -nargs=0 TF :call TF()
