@@ -130,6 +130,12 @@ let g:pyflakes_use_quickfix = 0
 " Same as taglist but different
 " /tagbar/ }}}3
 
+" Plugin: logcat {{{3
+" --------------------------------
+" add Color syntax to logcat log + MVP session.log files
+" add folding support for MVP session.log files
+" /logcat/ }}}3
+
 
 " /Plugins/ }}}2
 
