@@ -33,7 +33,6 @@ set nu
 set ls=2  " Always shows the statusbar
 set mouse=nv
 
-set expandtab
 set printoptions=paper:A4
 
 " SubSection: Plugin {{{2
