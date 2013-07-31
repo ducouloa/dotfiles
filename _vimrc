@@ -136,6 +136,12 @@ let g:pyflakes_use_quickfix = 0
 " /logcat/ }}}3
 
 
+" Plugin: vimux {{{3
+" --------------------------------
+" integrate vim with tmux
+" clone of the github repo https://github.com/benmills/vimux
+" /vimux/ }}}3
+
 " /Plugins/ }}}2
 
 " /Options/ }}}1

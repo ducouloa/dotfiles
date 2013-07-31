@@ -34,3 +34,6 @@
 [submodule "_vim/bundle/tagbar"]
 	path = _vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar
+[submodule "_vim/bundle/vimux"]
+	path = _vim/bundle/vimux
+	url = git://github.com/benmills/vimux
