@@ -37,3 +37,6 @@
 [submodule "_vim/bundle/vimux"]
 	path = _vim/bundle/vimux
 	url = git://github.com/benmills/vimux
+[submodule "_vim/bundle/syntastic"]
+	path = _vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

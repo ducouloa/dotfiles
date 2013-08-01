@@ -142,6 +142,16 @@ let g:pyflakes_use_quickfix = 0
 " clone of the github repo https://github.com/benmills/vimux
 " /vimux/ }}}3
 
+
+" Plugin: Syntastic {{{3
+" --------------------------------
+" Syntax error checking
+" clone of the github repo https://github.com/scrooloose/syntastic.git
+let g:syntastic_python_flake8_args='--ignore=E501'
+let g:syntastic_python_checkers=['flake8']
+" /Syntastic/ }}}3
+
+
 " /Plugins/ }}}2
 
 " /Options/ }}}1
