@@ -40,3 +40,6 @@
 [submodule "_vim/bundle/syntastic"]
 	path = _vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "_vim/bundle/tmux-syntax"]
+	path = _vim/bundle/tmux-syntax
+	url = git://github.com/zaiste/tmux.vim
