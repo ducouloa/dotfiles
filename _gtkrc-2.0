@@ -1,0 +1,21 @@
+# -- THEME AUTO-WRITTEN BY gtk-theme-switch2 DO NOT EDIT
+include "/home/aducoulombier/project/gtk2-theme-solarizeddark/gtk-2.0/gtkrc"
+
+style "user-font"
+{
+  font_name="Sans 9"
+}
+widget_class "*" style "user-font"
+
+style "purplerc_style"
+{
+	GtkIMHtml::hyperlink-color = "#268BD2"
+	GtkIMHtml::hyperlink-visited-color = "#6C71C4"
+	GtkIMHtml::send-name-color = "#268BD2"
+	GtkIMHtml::receive-name-color = "#DC322F"
+}
+widget_class "*" style "purplerc_style"
+
+include "/home/aducoulombier/.gtkrc-2.0.mine"
+
+# -- THEME AUTO-WRITTEN BY gtk-theme-switch2 DO NOT EDIT
