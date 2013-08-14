@@ -201,7 +201,7 @@ nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
 nmap <leader>/ :let @/=""
 
-"Allow saving during edition
+"Allow saving during edition: Must be disable in the bashrc: stty -ixon
 imap <C-S> <C-O>:write
 " /Mappings/ }}}1
 
