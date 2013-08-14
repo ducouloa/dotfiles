@@ -33,6 +33,7 @@ set nu
 set ls=2  " Always shows the statusbar
 set mouse=nv
 
+set cryptmethod=blowfish
 set printoptions=paper:A4
 
 " SubSection: Plugin {{{2
@@ -200,6 +201,8 @@ nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
 nmap <leader>/ :let @/=""
 
+"Allow saving during edition
+imap <C-S> <C-O>:write
 " /Mappings/ }}}1
 
 " Section: Autocommands {{{1
