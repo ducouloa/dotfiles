@@ -296,6 +296,16 @@ xkb_keymap {
     // AltGr
     key <RALT> { [ VoidSymbol ], actions = [ SetGroup(group=2) ] };
     //include "level3(ralt_switch)"
+
+    replace key <CAPS> {
+      [ VoidSymbol, VoidSymbol ]
+    };
+    modifier_map Control { <CAPS> };
+
+    replace key <MENU> {
+      [ VoidSymbol, VoidSymbol ]
+    };
+    modifier_map Lock { <MENU> };
   };
 
   //xkb_geometry { include "pc(pc105)" };
