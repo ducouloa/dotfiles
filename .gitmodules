@@ -43,3 +43,9 @@
 [submodule "_vim/bundle/tmux-syntax"]
 	path = _vim/bundle/tmux-syntax
 	url = git://github.com/zaiste/tmux.vim
+[submodule "_vim/bundle/vimwiki"]
+	path = _vim/bundle/vimwiki
+	url = git://github.com/vimwiki/vimwiki
+[submodule "_vim/bundle/calendar"]
+	path = _vim/bundle/calendar
+	url = git://github.com/mattn/calendar-vim
