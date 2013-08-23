@@ -30,6 +30,7 @@ URxvt.visualBell:            true
 URxvt.font:                  xft:terminus:pixelsize=12
 URxvt.boldFont:              xft:terminus:bold:pixelsize=12
 URxvt.italicFont:            xft:inconsolata:italic:pixelsize=12
+URxvt.bolditalicFont:        xft:inconsolata:bold:italic:pixelsize=11
 
 ! Color
 URxvt.background:            #002b36
