@@ -33,6 +33,8 @@ set nu
 set ls=2  " Always shows the statusbar
 set mouse=nv
 
+" Expend the main content: eg: headers in vimwiki or taskpaper
+set foldlevel=1
 set cryptmethod=blowfish
 set printoptions=paper:A4
 
@@ -164,6 +166,12 @@ let vmw_wiki.path = '~/wres/'
 let vmw_wiki.path_html = '~/wres/html/'
 let vmw_wiki.diary_rel_path = 'perso/diary/'
 let g:vimwiki_list = [vmw_wiki]
+
+" allow folding in vimwiki files:
+let g:vimwiki_folding = 'expr'
+let g:vimwiki_hl_headers = 1
+" highlight checked checkbox with comment color
+let g:vimwiki_hl_cb_checked = 1
 
 " /vimwiki/ }}}3
 
