@@ -1,4 +1,19 @@
 "[Z": complete
 # "M-": backward-kill-word
 "": backward-kill-word
-"[29~": C-a
+
+# make home and end works
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
+# vi search with /
+# $if mode=vi
+# set keymap vi-command
+# # these are for vi-command mode
+# "/": history-search-backward
+# "?": history-search-forward
+#  set keymap vi-insert
+# # these are for vi-insert mode
+# "/": history-search-backward
+# "?": history-search-forward
+# $endif
