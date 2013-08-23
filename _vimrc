@@ -136,13 +136,11 @@ let g:pyflakes_use_quickfix = 0
 " add folding support for MVP session.log files
 " /logcat/ }}}3
 
-
 " Plugin: vimux {{{3
 " --------------------------------
 " integrate vim with tmux
 " clone of the github repo https://github.com/benmills/vimux
 " /vimux/ }}}3
-
 
 " Plugin: Syntastic {{{3
 " --------------------------------
@@ -151,6 +149,33 @@ let g:pyflakes_use_quickfix = 0
 let g:syntastic_python_flake8_args='--ignore=E501'
 let g:syntastic_python_checkers=['flake8']
 " /Syntastic/ }}}3
+
+" Plugin: vimwiki {{{3
+" --------------------------------
+" personal vim wiki organiser
+" clone of the github repo https://github.com/vimwiki
+"
+" See also the google group page: code.google.com/p/vimwiki/
+" This vimwiki plugin as a strong integration with calendar-vim plugin.
+" Thus I installed them together
+
+let vmw_wiki = {}
+let vmw_wiki.path = '~/wres/'
+let vmw_wiki.path_html = '~/wres/html/'
+let vmw_wiki.diary_rel_path = 'perso/diary/'
+let g:vimwiki_list = [vmw_wiki]
+
+" /vimwiki/ }}}3
+
+" Plugin: calendar {{{3
+" --------------------------------
+" Calendar plugin for vim: display a calendar with \cal
+" clone of the github repo https://github.com/mattn/calendar-vim
+"
+" Use vimwiki calendar integration
+let g:vimwiki_use_calendar = 1
+
+" /calendar/ }}}3
 
 
 " /Plugins/ }}}2
