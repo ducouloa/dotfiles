@@ -110,6 +110,7 @@ alias :q='exit'
 alias pm="adb shell pm"
 alias am="adb shell am"
 alias viproj="vim +Project"
+alias wiki="vim +VimwikiIndex"
 alias setandroidenv=". setandroidenv"
 
 function vim()
