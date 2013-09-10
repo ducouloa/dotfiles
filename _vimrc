@@ -34,7 +34,7 @@ set ls=2  " Always shows the statusbar
 set mouse=nv
 
 " Expend the main content: eg: headers in vimwiki or taskpaper
-set foldlevel=1
+set foldlevel=5
 set cryptmethod=blowfish
 set printoptions=paper:A4
 
