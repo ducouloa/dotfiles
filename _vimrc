@@ -165,6 +165,8 @@ let vmw_wiki = {}
 let vmw_wiki.path = '~/wres/'
 let vmw_wiki.path_html = '~/wres/html/'
 let vmw_wiki.diary_rel_path = 'perso/diary/'
+let vmw_wiki.auto_export = 1  " auto generate html when wiki page is saved
+let vmw_wiki.css_name = 'styles/solarized-light.css'
 let g:vimwiki_list = [vmw_wiki]
 
 " allow folding in vimwiki files:
