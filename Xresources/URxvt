@@ -1,7 +1,6 @@
 ! vim: ft=xdefaults
 ! URxvt xresources configuration
 
-
 ! URxvt*termName:screen-256color
 URxvt.geometry:              100x45
 
@@ -12,10 +11,14 @@ URxvt.cursorBlink:           true
 URxvt.print-pipe:            cat > /tmp/urxvt_dump; urxvt -e vim /tmp/urxvt_dump &
 
 URxvt.perl-lib:              /usr/local/lib/urxvt/perl/
-URxvt.perl-ext-common:       default,matcher
+URxvt.perl-ext-common:       matcher,vim-scrollback
 URxvt.matcher.button:        2
-URxvt.url-launcher:          /usr/local/bin/xombrero
+URxvt.url-launcher:          xdg-open
 
+! Configure vim-scrollback specific matchers
+URxvt.vim-scrollback.pattern.1: \\B(/home/aducoulombier/\\S+)
+URxvt.vim-scrollback.launcher.1: xdg-open
+URxvt.vim-scrollback:        M-s
 URxvt*saveLines:             12000
 URxvt*scrollstyle:           plain
 URxvt*scrollBar:             false
@@ -28,9 +31,10 @@ URxvt.visualBell:            true
 !urxvt fonts:
 !URxvt.font:                  -*-terminus-medium-*-*-*-*-120-*-*-*-*
 URxvt.font:                  xft:terminus:pixelsize=12
-URxvt.boldFont:              xft:terminus:bold:pixelsize=12
-URxvt.italicFont:            xft:inconsolata:italic:pixelsize=12
-URxvt.bolditalicFont:        xft:inconsolata:bold:italic:pixelsize=11
+! Installing the xterm-font package avoid specifing italic alternative
+! URxvt.boldFont:              xft:terminus:bold:pixelsize=12
+! URxvt.italicFont:            xft:inconsolata:italic:pixelsize=12
+! URxvt.bolditalicFont:        xft:inconsolata:bold:italic:pixelsize=11
 
 ! Color
 URxvt.background:            #002b36
@@ -42,7 +46,7 @@ URxvt.pointerColor:          #586e75
 URxvt.pointerColor2:         #93a1a1
 ! URxvt.underlineColor:#b50089
 !URxvt.colorUL: #86a2be
-URxvt.colorIT:               #798f97
+!URxvt.colorIT:               #798f97
 URxvt.colorBD:               #758b93
 URxvt.underlineColor:        #3465A4
 
@@ -63,6 +67,9 @@ URxvt.color13:               #6c71c4
 URxvt.color14:               #93a1a1
 URxvt.color15:               #fdf6e3
 
+! Disable annoying ctrl-shift functionality
+URxvt.iso14755:              false
+
 ! Special Key mapping
 URxvt*keysym.Home:           \033[1~
 URxvt*keysym.End:            \033[4~
@@ -79,7 +86,7 @@ URxvt.keysym.F10:            \033[21~
 URxvt.keysym.F11:            \033[23~
 URxvt.keysym.F12:            \033[24~
 
-URxvt*keysym.C-F7:           command:\033]710;-*-terminus-medium-*-*-*-*-120-*-*-*-*-iso8859-1\007
+URxvt*keysym.C-F7:           command:\033]710;xft:terminus:pixelsize=12\007
 URxvt*keysym.C-F8:           command:\033]710;xft:terminus:pixelsize=14\007
 
 ! emulate XTerm for proper recognition of key combinations in Vim
