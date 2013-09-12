@@ -111,6 +111,7 @@ alias pm="adb shell pm"
 alias am="adb shell am"
 alias viproj="vim +Project"
 alias wiki="vim +VimwikiIndex"
+alias diary="\vim -c VimwikiMakeDiaryNote"
 alias setandroidenv=". setandroidenv"
 
 function vim()
