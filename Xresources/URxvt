@@ -19,6 +19,8 @@ URxvt.url-launcher:          xdg-open
 URxvt.vim-scrollback.pattern.1: \\B(/home/aducoulombier/\\S+)
 URxvt.vim-scrollback.launcher.1: xdg-open
 URxvt.vim-scrollback:        M-s
+URxvt.vim-scrollback-bg:     18
+URxvt.vim-scrollback-fg:     24
 URxvt*saveLines:             12000
 URxvt*scrollstyle:           plain
 URxvt*scrollBar:             false

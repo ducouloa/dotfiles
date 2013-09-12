@@ -114,6 +114,12 @@ alias wiki="vim +VimwikiIndex"
 alias diary="\vim -c VimwikiMakeDiaryNote"
 alias setandroidenv=". setandroidenv"
 
+# display directory content with full path to open with vim-scrollable
+function lp()
+{
+  ls -d -1 $PWD/$1/*
+}
+
 function vim()
 {
   vi `echo $* | sed 's/:/ +/g'`
