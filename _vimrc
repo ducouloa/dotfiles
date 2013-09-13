@@ -307,7 +307,7 @@ endif
 
 colorscheme solarized
 
-set guifont=DejaVu\ Sans\ Mono\ 9
+set guifont=Terminus\ 8
 set guioptions=""
 
 " /Visual/ }}}1
