@@ -1,6 +1,10 @@
 ! vim: ft=xdefaults
 ! URxvt xresources configuration
 
+#ifndef HOME
+#define HOME /home/ducouloa
+#endif
+
 ! URxvt*termName:screen-256color
 URxvt.geometry:              100x45
 
@@ -16,10 +20,10 @@ URxvt.matcher.button:        2
 URxvt.url-launcher:          xdg-open
 
 ! Configure vim-scrollback specific matchers
-URxvt.vim-scrollback.pattern.1: \\B(/home/aducoulombier/\\S+)
+URxvt.vim-scrollback.pattern.1: \\B(HOME/\\S+)
 URxvt.vim-scrollback.launcher.1: xdg-open
 URxvt.vim-scrollback.pattern.2: \\B~(/\\S+)
-URxvt.vim-scrollback.launcher.2: xdg-open /home/aducoulombier$1
+URxvt.vim-scrollback.launcher.2: xdg-open HOME$1
 URxvt.vim-scrollback:        M-s
 URxvt.vim-scrollback-bg:     18
 URxvt.vim-scrollback-fg:     24

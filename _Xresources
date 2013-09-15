@@ -1,6 +1,8 @@
 ! vim: filetype=xdefaults
 !Comment for Xresources
 
+#include ".Xresources_local"
+
 #include "dotfiles/Xresources/URxvt"
 
 #include "dotfiles/Xresources/XTerm"
