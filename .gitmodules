@@ -49,3 +49,6 @@
 [submodule "_vim/bundle/calendar"]
 	path = _vim/bundle/calendar
 	url = git://github.com/mattn/calendar-vim
+[submodule "_vim/bundle/surround"]
+	path = _vim/bundle/surround
+	url = git://github.com/tpope/vim-surround

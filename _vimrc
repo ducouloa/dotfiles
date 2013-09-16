@@ -166,7 +166,7 @@ let vmw_wiki.path = '~/wres/'
 let vmw_wiki.path_html = '~/wres/html/'
 let vmw_wiki.diary_rel_path = 'perso/diary/'
 let vmw_wiki.auto_export = 1  " auto generate html when wiki page is saved
-let vmw_wiki.css_name = 'styles/solarized-light.css'
+" let vmw_wiki.css_name = 'styles/solarized-light.css'
 let g:vimwiki_list = [vmw_wiki]
 
 " allow folding in vimwiki files:
@@ -213,6 +213,14 @@ endfunction " }}}
 let g:vimwiki_use_calendar = 1
 
 " /calendar/ }}}3
+
+" Plugin: surround {{{3
+" --------------------------------
+" vim surround plugin
+" clone of the github repo https://github.com/tpope/vim-surround
+" allow to surround and modify tag efficiently
+
+" /surround/ }}}3
 
 
 " /Plugins/ }}}2
