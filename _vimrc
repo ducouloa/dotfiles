@@ -44,6 +44,8 @@ set printoptions=paper:A4
 let g:load_doxygen_syntax=1
 let g:pyflakes_use_quickfix = 0
 
+source $VIMRUNTIME/macros/matchit.vim
+
 " Plugin: vim-pathogen {{{3
 " --------------------------------
 " copie of the pathogen plugin
@@ -162,7 +164,7 @@ let g:syntastic_python_checkers=['flake8']
 " Thus I installed them together
 
 let vmw_wiki = {}
-let vmw_wiki.path = '~/wres/'
+let vmw_wiki.path = '/media/ducouloa/wres/'
 let vmw_wiki.path_html = '~/wres/html/'
 let vmw_wiki.diary_rel_path = 'perso/diary/'
 let vmw_wiki.auto_export = 1  " auto generate html when wiki page is saved
@@ -311,6 +313,13 @@ syntax on
 
 if &term == "screen-256color"
   set t_Co=256
+endif
+if &term == "tmux-terminfo"
+  " tmux will send xterm-style keys when its xterm-keys option is on
+  map [1;5A <C-Up>
+  map [1;5B <C-Down>
+  map [1;5C <C-Right>
+  map [1;5D <C-Left>
 endif
 
 colorscheme solarized
