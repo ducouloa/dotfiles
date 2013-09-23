@@ -18,6 +18,8 @@ URxvt.perl-lib:              /usr/local/lib/urxvt/perl/
 URxvt.perl-ext-common:       matcher,vim-scrollback
 URxvt.matcher.button:        2
 URxvt.url-launcher:          xdg-open
+URxvt.keysym.C-Delete:       perl:matcher:last
+URxvt.keysym.M-Delete:       perl:matcher:list
 
 ! Configure vim-scrollback specific matchers
 URxvt.vim-scrollback.pattern.1: \\B(/\\S+)
