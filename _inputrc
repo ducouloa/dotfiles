@@ -6,6 +6,8 @@
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 
+# abreviate S-F2 to /media/ducouloa/wres
+"[1;2Q": "/media/ducouloa/wres/"
 # vi search with /
 # $if mode=vi
 # set keymap vi-command
