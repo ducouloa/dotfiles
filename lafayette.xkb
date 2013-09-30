@@ -87,16 +87,16 @@ xkb_keymap {
   // │     │     │     │     │     │     │     │     │     │     │     │     │     ┃ ⌫        ┃
   // ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┳━━━━━━━┫
   // ┃        ┃     │     │     │     │     │     │     │     │     │     │     │     ┃       ┃
-  // ┃ ↹      ┃     │     │     │     │     │     │     │ Up  │     │     │     │     ┃       ┃
+  // ┃ ↹      ┃     │     │     │     │     │     │     │Prior│Next │     │     │     ┃       ┃
   // ┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓  ⏎   ┃
   // ┃         ┃     │     │     │     │     │     │     │     │     │     │     │     ┃      ┃
-  // ┃ ⇬       ┃     │     │     │     │     │     │Left │Down │Right│     │     │     ┃      ┃
+  // ┃ ⇬       ┃     │     │     │     │     │Left │Down │ Up  │Right│     │     │     ┃      ┃
   // ┣━━━━━━┳━━┹──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┷━━━━━┻━━━━━━┫
   // ┃      ┃LSGT │     │     │     │     │     │     │     │     │     │     ┃               ┃
   // ┃ ⇧    ┃     │     │     │     │     │     │     │     │     │     │     ┃ ⇧             ┃
   // ┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
   // ┃       ┃       ┃       ┃                                ┃       ┃       ┃       ┃       ┃
-  // ┃ Ctrl  ┃ super ┃ Alt   ┃ ␣ Échapp                       ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
+  // ┃ Ctrl  ┃ super ┃ Alt   ┃ Delete                         ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
   // ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 
   partial alphanumeric_keys modifier_keys
@@ -185,11 +185,12 @@ xkb_keymap {
     key <AD08> {
       type[group1] = "FOUR_LEVEL", [ i, I, uparrow, U21D1 ],
       type[group2] = "TWO_LEVEL" , [ 5, VoidSymbol ],
-      type[group3] = "H_LEVEL"   , [ Up ]
+      type[group3] = "H_LEVEL"   , [ Prior ]
     };
     key <AD09> {
       type[group1] = "FOUR_LEVEL", [ o, O, oe, OE ],
-      type[group2] = "TWO_LEVEL" , [ 6, VoidSymbol ]
+      type[group2] = "TWO_LEVEL" , [ 6, VoidSymbol ],
+      type[group3] = "H_LEVEL"   , [ Next ]
     };
     key <AD10> {
       type[group1] = "FOUR_LEVEL", [ p, P, section, paragraph ],
@@ -219,17 +220,18 @@ xkb_keymap {
     };
     key <AC06> {
       type[group1] = "FOUR_LEVEL", [ h, H, dagger, doubledagger ],
-      type[group2] = "TWO_LEVEL" , [ VoidSymbol, VoidSymbol ]
+      type[group2] = "TWO_LEVEL" , [ VoidSymbol, VoidSymbol ],
+      type[group3] = "H_LEVEL"   , [ Left ]
     };
     key <AC07> {
       type[group1] = "FOUR_LEVEL", [ j, J, leftarrow, U21D0 ],
       type[group2] = "TWO_LEVEL" , [ 1, VoidSymbol ],
-      type[group3] = "H_LEVEL"   , [ Left ]
+      type[group3] = "H_LEVEL"   , [ Down ]
     };
     key <AC08> {
       type[group1] = "FOUR_LEVEL", [ k, K, downarrow, U21D3 ],
       type[group2] = "TWO_LEVEL" , [ 2, VoidSymbol ],
-      type[group3] = "H_LEVEL"   , [ Down ]
+      type[group3] = "H_LEVEL"   , [ Up ]
     };
     key <AC09> {
       type[group1] = "FOUR_LEVEL", [ l, L, rightarrow, U21D2 ],
@@ -313,7 +315,8 @@ xkb_keymap {
     };
     key <SPCE> {
       type[group1] = "FOUR_LEVEL", [ space, space, rightsinglequotemark, U202F ],
-      type[group2] = "TWO_LEVEL" , [ Escape, nobreakspace ]
+      type[group2] = "TWO_LEVEL" , [ Escape, nobreakspace ],
+      type[group3] = "H_LEVEL"   , [ Delete ]
     };
 
     // AltGr
