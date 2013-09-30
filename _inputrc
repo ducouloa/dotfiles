@@ -8,6 +8,13 @@
 
 # abreviate S-F2 to /media/ducouloa/wres
 "[1;2Q": "/media/ducouloa/wres/"
+
+# abreviate S-F3 to ~/.
+"[1;2R": "~/."
+
+# S-F4 sudo umount /media/ducouloa
+"[1;2S": "sudo umount /media/ducouloa"
+
 # vi search with /
 # $if mode=vi
 # set keymap vi-command
