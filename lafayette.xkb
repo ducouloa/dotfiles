@@ -87,7 +87,7 @@ xkb_keymap {
   // │     │     │     │     │     │     │     │     │     │     │     │     │     ┃ ⌫        ┃
   // ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┳━━━━━━━┫
   // ┃        ┃     │     │     │     │     │     │     │     │     │     │     │     ┃       ┃
-  // ┃ ↹      ┃     │     │     │     │     │     │     │Prior│Next │     │     │     ┃       ┃
+  // ┃ ↹      ┃     │  ☺  │  ☹  │     │     │     │     │Prior│Next │     │     │     ┃       ┃
   // ┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓  ⏎   ┃
   // ┃         ┃     │     │     │     │     │     │     │     │     │     │     │     ┃      ┃
   // ┃ ⇬       ┃     │     │     │     │     │Left │Down │ Up  │Right│     │     │     ┃      ┃
@@ -160,11 +160,13 @@ xkb_keymap {
     };
     key <AD02> {
       type[group1] = "FOUR_LEVEL", [ w, W, eacute, Eacute ],
-      type[group2] = "TWO_LEVEL" , [ less, lessthanequal ]
+      type[group2] = "TWO_LEVEL" , [ less, lessthanequal ],
+      type[group3] = "ONE_LEVEL" , [ U263A ]
     };
     key <AD03> {
       type[group1] = "FOUR_LEVEL", [ e, E, egrave, Egrave ],
-      type[group2] = "TWO_LEVEL" , [ greater, greaterthanequal ]
+      type[group2] = "TWO_LEVEL" , [ greater, greaterthanequal ],
+      type[group3] = "ONE_LEVEL" , [ U2639 ]
     };
     key <AD04> {
       type[group1] = "FOUR_LEVEL", [ r, R, registered, trademark ],
