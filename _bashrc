@@ -71,12 +71,20 @@ else
 fi
 }
 
+function shorten_path {
+  # reduce the full path to a shorter form
+  # e.g. /home/ducouloa/long/path/to/directory/ → ~/l/p/t/directory
+  redu=`echo $PWD |sed -r "s|$HOME|~|"`
+  echo $redu | sed -r 's;([^/]?)[^/]*/;\1/;g'
+  unset redu
+}
+
 PS1='${debian_chroot:+($debian_chroot)}'
 #PS1+='\[\033[01;30m\][\t]\[\033[00m\]'
 PS1+='\[\033[35m\]$(parse_git_branch_and_add_cbrackets)\[\033[00m\]'
 #PS1+='\[\033[01;30m\]\u@\[\033[00m\]'
 #PS1+='\[\033[32m\]\h\[\033[00m\]:'
-PS1+='\[\033[34m\]\W\[\033[00m\]'
+PS1+='\[\033[34m\]$(eval "shorten_path")\[\033[00m\]'
 PS1+='\[\033[33m\]$(return_android_serial)\[\033[00m\]'
 PS1=$(tmux_decoration $PS1)
 PS1+='\$ '
