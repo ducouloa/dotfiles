@@ -114,6 +114,11 @@ alias wiki="vim +VimwikiIndex"
 alias diary="\vim -c VimwikiMakeDiaryNote"
 alias setandroidenv=". setandroidenv"
 
+# bd utility (back into directory) see submodule scripts/bd
+alias bd='. ~/dotfiles/scripts/bd/bd -si'
+# + add the autocompletion
+source ~/dotfiles/scripts/bd/bash_completion.d/bd
+
 # display directory content with full path to open with vim-scrollable
 function lp()
 {

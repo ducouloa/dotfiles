@@ -52,3 +52,6 @@
 [submodule "_vim/bundle/surround"]
 	path = _vim/bundle/surround
 	url = git://github.com/tpope/vim-surround
+[submodule "scripts/bd"]
+	path = scripts/bd
+	url = git://github.com/vigneshwaranr/bd
