@@ -51,7 +51,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 function parse_git_branch_and_add_cbrackets {
-git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\{\1\}/'
+/usr/bin/git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\{\1\}/'
 }
 
 function return_android_serial {
@@ -104,6 +104,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
+alias o='xdg-open'
 alias sl='ls'
 alias ll='ls -alF'
 alias la='ls -A'
@@ -119,7 +120,8 @@ alias pm="adb shell pm"
 alias am="adb shell am"
 alias viproj="vim +Project"
 alias wiki="vim +VimwikiIndex"
-alias diary="\vim -c VimwikiMakeDiaryNote"
+# workaround the startify plugin with a throwaways variable 'a'
+alias diary="\vim -c VimwikiMakeDiaryNote throwaways_buf"
 alias setandroidenv=". setandroidenv"
 
 # bd utility (back into directory) see submodule scripts/bd
