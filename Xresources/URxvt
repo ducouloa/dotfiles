@@ -38,6 +38,7 @@ URxvt*cursorBlink:           true
 URxvt*cursorUnderline:       false
 URxvt.insecure:              true
 URxvt.visualBell:            true
+URxvt.urgentOnBell:          true
 
 
 !urxvt fonts:
