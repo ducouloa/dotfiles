@@ -1,0 +1,9 @@
+# vim: filetype=muttrc
+### Colorizing patch
+color body default default "^diff \-.*"
+color body default default "^index [a-f0-9].*"
+color body default default "^\-\-\- .*"
+color body default default "^[\+]{3} .*"
+color body default default "^[\+][^\+]+.*"
+color body default default "^\-[^\-]+.*"
+color body default default "^@@ .*"

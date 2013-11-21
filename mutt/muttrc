@@ -1,0 +1,76 @@
+## GENERAL OPTION
+
+# keep a cache of headers for faster loading (1.5.9+?)
+set header_cache=~/.mutt/header_cache
+set message_cachedir=~/.mutt/bodies_cache
+set certificate_file=~/.mutt/certificates
+
+# Automatically poll subscribed mailboxes for new mail
+set imap_check_subscribed
+set mbox_type=Maildir
+
+# Composing Mail
+set editor="vim"
+
+# Sending Mail
+set copy=yes
+
+# View special Formats
+set mailcap_path=~/.mutt/mailcap
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+auto_view text/x-diff
+auto_view text/x-patch
+set allow_ansi  # For seeing color rendering
+
+
+# sidebar patch
+set sidebar_width=30
+set sidebar_sort
+
+bind pager b previous-page
+
+# Don't wait to enter mailbox manually
+# set imap_list_subscribed
+set imap_idle
+unset imap_passive
+unset imap_peek
+
+source ~/.mutt/colors.muttrc
+
+#IMAP settings
+# Reduce polling frequency to a sane level
+set mail_check=60
+# And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
+set timeout=10
+
+set beep_new=yes
+
+# activate TLS if available on the server
+# set ssl_starttls=yes
+# always use SSL when connecting to server
+# set ssl_force_tls=yes
+
+
+## Apperance
+
+# index to see fold thread
+# default mutt index format: set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+# set index_format="%4C %?H?[%H] ? %Z %X %{%b %d} %-15.15F %?M?(#%03M)&(%4c)? %s"
+set index_format="%4C %?M?+& ?%02M %2e %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+
+set nomarkers   # Remove + sign at the beginning of wrapped lines
+set nomark_old  # Just list unread messages.
+set delete=yes  # Don't ask when deleting messages
+set include=yes  # Include message in reply
+set pager_index_lines=0  # No index in pager
+
+# use ldap seach
+set query_command="lbdbq %s* 2>/dev/null"
+## Accont Local
+## source "~/.mutt/local"
+## folder-hook $folder 'source ~/.mutt/local'
+
+## Account zimbra
+source "~/.mutt/zimbra"
+folder-hook $folder 'source ~/.mutt/zimbra'
