@@ -33,6 +33,9 @@ set nu
 set ls=2  " Always shows the statusbar
 set mouse=nv
 
+" set '=' as a file delimiter
+set isfname-==
+
 " Expend the main content: eg: headers in vimwiki or taskpaper
 set foldlevel=5
 set cryptmethod=blowfish
@@ -168,7 +171,7 @@ let vmw_wiki.path = '/media/ducouloa/wres/'
 let vmw_wiki.path_html = '~/wres/html/'
 let vmw_wiki.diary_rel_path = 'perso/diary/'
 let vmw_wiki.auto_export = 1  " auto generate html when wiki page is saved
-" let vmw_wiki.css_name = 'styles/solarized-light.css'
+" let vmw_wiki.css_name = 'styles/style.css'
 let g:vimwiki_list = [vmw_wiki]
 
 " allow folding in vimwiki files:
@@ -321,7 +324,6 @@ if &term == "tmux-terminfo"
   map [1;5C <C-Right>
   map [1;5D <C-Left>
 endif
-
 colorscheme solarized
 
 set guifont=Terminus\ 8
