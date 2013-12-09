@@ -1,7 +1,6 @@
 # text/html; /usr/bin/w3m %s; needsterminal;
 # text/html; xombrero %s; nametemplate=%s.html
-text/html; w3m -T text/html -cols 120 -dump %s; nametemplate=%s.html; needsterminal
-text/html; /usr/local/bin/xombrero %s ; nametemplate=%s.html
+text/html; /usr/local/bin/xombrero %s & sleep 2 ; nametemplate=%s.html
 text/html; w3m -T text/html -cols 120 -dump %s; copiousoutput
 # text/html; links2 -dump %s; nametemplate=%s.html; copiousoutput
 application/vnd.openxmlformats-officedocument.presentationml.presentation; soffice '%s'

@@ -29,6 +29,7 @@ set sidebar_width=30
 set sidebar_sort
 
 bind pager b previous-page
+# macro index n "<clear-flag>N"
 
 # Don't wait to enter mailbox manually
 # set imap_list_subscribed
@@ -59,6 +60,7 @@ set beep_new=yes
 # set index_format="%4C %?H?[%H] ? %Z %X %{%b %d} %-15.15F %?M?(#%03M)&(%4c)? %s"
 set index_format="%4C %?M?+& ?%02M %2e %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 
+set quote_regexp="^([ \t]*[|>:])+"
 set nomarkers   # Remove + sign at the beginning of wrapped lines
 set nomark_old  # Just list unread messages.
 set delete=yes  # Don't ask when deleting messages
