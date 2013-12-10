@@ -30,6 +30,7 @@ set sidebar_sort
 
 bind pager b previous-page
 # macro index n "<clear-flag>N"
+macro index \eo "|~/.mutt/mutt_rb<enter>"
 
 # Don't wait to enter mailbox manually
 # set imap_list_subscribed
@@ -44,6 +45,9 @@ source ~/.mutt/colors.muttrc
 set mail_check=60
 # And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
 set timeout=10
+
+# Speed up folder swith
+set sleep_time=0
 
 set beep_new=yes
 

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xombrero `sed -n 's/X-ReviewRequest-URL:\(.*\)$/\1/p' $@` &
+
