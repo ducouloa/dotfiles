@@ -6,14 +6,11 @@
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 
-# abreviate S-F2 to /media/ducouloa/wres
-"[1;2Q": "/media/ducouloa/wres/"
-
 # abreviate S-F3 to ~/.
 "[1;2R": "~/."
 
-# S-F4 sudo umount /media/ducouloa
-"[1;2S": "sudo umount /media/ducouloa"
+# S-F4 to umount luks usb drive
+"[1;2S": "sudo ~/project/luks/umount_luks.sh"
 
 # vi search with /
 # $if mode=vi

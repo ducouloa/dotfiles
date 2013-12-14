@@ -167,7 +167,7 @@ let g:syntastic_python_checkers=['flake8']
 " Thus I installed them together
 
 let vmw_wiki = {}
-let vmw_wiki.path = '/media/ducouloa/wres/'
+let vmw_wiki.path = '~/wiki/'
 let vmw_wiki.path_html = '~/wres/html/'
 let vmw_wiki.diary_rel_path = 'perso/diary/'
 let vmw_wiki.auto_export = 1  " auto generate html when wiki page is saved
