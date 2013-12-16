@@ -30,7 +30,7 @@ set sidebar_sort
 
 bind pager b previous-page
 # macro index n "<clear-flag>N"
-macro index \eo "|~/.mutt/mutt_rb<enter>"
+macro index \eo "|~/dotfiles/mutt/mutt_rb<enter>"
 
 # Don't wait to enter mailbox manually
 # set imap_list_subscribed
@@ -69,7 +69,10 @@ set nomarkers   # Remove + sign at the beginning of wrapped lines
 set nomark_old  # Just list unread messages.
 set delete=yes  # Don't ask when deleting messages
 set include=yes  # Include message in reply
+
 set pager_index_lines=0  # No index in pager
+# set pager_format="-%Z- %C/%m: %-20.20n   %s%*  -- (%P)"  # Mutt default
+set pager_format="%4C %Z %[!%b %e at %H:%M] %.20n %s%* -- (%P)"
 
 # use ldap seach
 set query_command="lbdbq %s* 2>/dev/null"
