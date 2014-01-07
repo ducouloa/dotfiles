@@ -121,7 +121,7 @@ alias am="adb shell am"
 alias viproj="vim +Project"
 alias wiki="vim +VimwikiIndex"
 # workaround the startify plugin with a throwaways variable 'a'
-alias diary="\vim -c VimwikiMakeDiaryNote throwaways_buf"
+alias diary="\vim -c VimwikiMakeDiaryNote throwaways_buf +"
 alias setandroidenv=". setandroidenv"
 
 # bd utility (back into directory) see submodule scripts/bd
