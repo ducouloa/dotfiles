@@ -170,7 +170,7 @@ let vmw_wiki = {}
 let vmw_wiki.path = '~/wiki/'
 let vmw_wiki.path_html = '~/wres/html/'
 let vmw_wiki.diary_rel_path = 'perso/diary/'
-let vmw_wiki.auto_export = 1  " auto generate html when wiki page is saved
+let vmw_wiki.auto_export = 0  " auto generate html when wiki page is saved
 " let vmw_wiki.css_name = 'styles/style.css'
 let g:vimwiki_list = [vmw_wiki]
 
@@ -266,7 +266,22 @@ map <F11> :call ToggleList()
 " let mapleader = "ù"
 map <SPACE> 
 map <BS> 
-map <F2>  :set number!
+
+" Cycle over number relativenumber and no number option
+function! NumberCycle()
+  if (&number == 1)
+    if (&relativenumber == 0)
+      set relativenumber
+    else
+      set nonumber
+      set norelativenumber
+    endif
+  else
+    set number
+  endif
+endfunction
+map <F2>  :call NumberCycle()
+
 "map <F11> :!ctags -R .
 "map <leader>T :TagbarToggle<CR>
 "map <leader>t :TlistToggle<CR>
