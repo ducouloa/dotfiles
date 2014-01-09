@@ -217,6 +217,13 @@ endfunction " }}}
 " Use vimwiki calendar integration
 let g:vimwiki_use_calendar = 1
 
+function! Diary()
+  exec "VimwikiMakeDiaryNote"
+  exec "Calendar"
+  exec "wincmd x"
+endfunction
+command! Diary call Diary()
+
 " /calendar/ }}}3
 
 " Plugin: surround {{{3
