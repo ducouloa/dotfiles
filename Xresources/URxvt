@@ -14,7 +14,7 @@ URxvt*shading:               30
 URxvt.cursorBlink:           true
 URxvt.print-pipe:            cat > /tmp/urxvt_dump; urxvt -e vim /tmp/urxvt_dump &
 
-URxvt.perl-lib:              /usr/local/lib/urxvt/perl/
+URxvt.perl-lib:              HOME/dotfiles/Xresources/lib/
 URxvt.perl-ext-common:       matcher,vim-scrollback
 URxvt.matcher.button:        2
 URxvt.url-launcher:          xdg-open
