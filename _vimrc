@@ -221,6 +221,9 @@ function! Diary()
   exec "VimwikiMakeDiaryNote"
   exec "Calendar"
   exec "wincmd x"
+  call append(line('$'), '')
+  call append(line('$'), "----")
+  call append(line('$'), "_" . strftime("%Hh%M") . "_:")
 endfunction
 command! Diary call Diary()
 
