@@ -25,8 +25,10 @@ set allow_ansi  # For seeing color rendering
 
 
 # sidebar patch
+set nosidebar_visible
 set sidebar_width=30
 set sidebar_sort
+set nohelp
 
 bind pager b previous-page
 # macro index n "<clear-flag>N"
@@ -35,7 +37,7 @@ macro index \eo "|~/dotfiles/mutt/mutt_rb<enter>"
 # Don't wait to enter mailbox manually
 # set imap_list_subscribed
 set imap_idle
-unset imap_passive
+set imap_passive
 unset imap_peek
 
 source ~/.mutt/colors.muttrc

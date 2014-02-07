@@ -1,9 +1,10 @@
 # text/html; /usr/bin/w3m %s; needsterminal;
 # text/html; xombrero %s; nametemplate=%s.html
 text/html; /usr/local/bin/xombrero %s 2> /dev/null & sleep 2 ; nametemplate=%s.html
-text/html; w3m -T text/html -cols 120 -dump %s; copiousoutput
+text/html; w3m -T text/html -cols 120 -dump -o display_link_number=1 %s; copiousoutput
 # text/html; links2 -dump %s; nametemplate=%s.html; copiousoutput
-application/vnd.openxmlformats-officedocument.presentationml.presentation; soffice '%s'
+application/vnd.openxmlformats-officedocument.presentationml.presentation; libreoffice '%s'
+application/vnd.ms-powerpoint; libreoffice '%s'
 application/pdf; /usr/bin/xdg-open %s
 image/png; /usr/bin/feh %s
 image/jpg; /usr/bin/feh %s
