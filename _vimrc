@@ -219,8 +219,6 @@ let g:vimwiki_use_calendar = 1
 
 function! Diary()
   exec "VimwikiMakeDiaryNote"
-  exec "Calendar"
-  exec "wincmd x"
   call append(line('$'), '')
   call append(line('$'), "----")
   call append(line('$'), "_" . strftime("%Hh%M") . "_:")
