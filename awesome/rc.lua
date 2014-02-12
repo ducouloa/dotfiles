@@ -44,6 +44,38 @@ beautiful.init("/home/aducoulombier/.config/awesome/themes/niceandclean/theme.lu
 local pomodoro = require("pomodoro")
 pomodoro.init()
 
+-- CPU usage widget
+cpuwidget = awful.widget.graph()
+cpuwidget:set_width(50)
+cpuwidget:set_background_color("#494B4F")
+cpuwidget:set_color("#FF5656")
+cpuwidget:set_gradient_colors({ "#FF5656", "#88A175", "#AECF96" })
+-- cpuwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 50, 0 }, stops = { { 0, "#FF5656" }, { 0.5, "#88A175" }, { 1, "#AECF96" }}})
+vicious.cache(vicious.widgets.cpu)
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 3)
+--  updated every 3 seconds, feeds the graph with total usage
+--  percentage of all CPUs/cores and enable caching of this widget
+--  type
+
+-- Memory usage
+-- with progress bar pb
+-- Initialize widget
+mempbwidget = awful.widget.progressbar()
+-- Progressbar properties
+mempbwidget:set_width(8)
+mempbwidget:set_height(20)
+mempbwidget:set_vertical(true)
+mempbwidget:set_background_color("#494B4F")
+mempbwidget:set_border_color(nil)
+mempbwidget:set_color("#AECF96")
+mempbwidget:set_gradient_colors({ "#AECF96", "#88A175", "#FF5656" })
+-- Register widget
+vicious.register(mempbwidget, vicious.widgets.mem, "$1", 13)
+-- memory without progress bar
+-- Initialize widget
+-- memwidget = widget({ type = "textbox" })
+-- Register widget
+-- vicious.register(memwidget, vicious.widgets.mem, "$1%", 13)
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "x-terminal-emulator"
@@ -192,6 +224,8 @@ for s = 1, screen.count() do
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
+        s == 2 and cpuwidget or nil,
+        s == 2 and mempbwidget or nil,
         mylayoutbox[s],
         s == 1 and pomodoro.widget or nil,
         mytextclock,
