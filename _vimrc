@@ -338,6 +338,7 @@ if has("autocmd")
 
   autocmd BufEnter *.c set expandtab
   autocmd BufEnter *.h set expandtab
+  autocmd BufEnter *.java set expandtab
 
   "setup SyntaxComplete for every filetype that does not already have a
   "language specific OMNI script
