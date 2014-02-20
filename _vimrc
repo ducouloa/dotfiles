@@ -236,6 +236,29 @@ command! Diary call Diary()
 " /surround/ }}}3
 
 
+" Plugin: ultisnip {{{3
+" --------------------------------
+" Snippet plugin utility
+" clone of the github repo https://github.com/SirVer/ultisnips.git
+
+" The trigger used to expand a snippet.
+" NOTE: expansion and forward jumping can, but needn't be the same trigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+
+" The trigger used to display all triggers that could possible
+" match in the current position.
+let g:UltiSnipsListSnippets = "<leader><tab>"
+
+" The trigger used to jump forward to the next placeholder.
+" NOTE: expansion and forward jumping can, but needn't be the same trigger
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+
+" The trigger to jump backward inside a snippet
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+" /ultisnip/ }}}3
+
+
 " /Plugins/ }}}2
 
 " /Options/ }}}1

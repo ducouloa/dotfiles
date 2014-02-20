@@ -55,3 +55,6 @@
 [submodule "scripts/bd"]
 	path = scripts/bd
 	url = git://github.com/vigneshwaranr/bd
+[submodule "_vim/bundle/ultisnips"]
+	path = _vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
