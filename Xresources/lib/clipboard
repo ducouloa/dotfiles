@@ -1,0 +1,97 @@
+#! perl -w
+# Author:   Bert Muennich
+# Website:  http://www.github.com/muennich/urxvt-perls
+# License:  GPLv2
+# Modified by ducouloa 2014-02-24
+
+# Use keyboard shortcuts to copy the selection to the clipboard and to paste
+# the clipboard contents (optionally escaping all special characters).
+# Requires xsel to be installed!
+
+# Usage: put the following lines in your .Xdefaults/.Xresources:
+#   URxvt.perl-ext-common: ...,clipboard
+#   URxvt.keysym.M-c:   perl:clipboard:paste_primary
+#   URxvt.keysym.M-v:   perl:clipboard:paste_clipboard
+
+# Options:
+#   URxvt.clipboard.autocopy: If true, PRIMARY overwrites clipboard
+
+# Dependency: use xsel to past from the primary and clipboard buffer
+
+# The use of the functions should be self-explanatory!
+
+use strict;
+
+sub on_start {
+	my ($self) = @_;
+
+	if ($self->x_resource('clipboard.autocopy') eq 'true') {
+		$self->enable(sel_grab => \&sel_grab);
+	}
+
+	()
+}
+
+sub copy {
+	my ($self) = @_;
+
+	if (open(CLIPBOARD, "| $self->{copy_cmd}")) {
+		my $sel = $self->selection();
+		utf8::encode($sel);
+		print CLIPBOARD $sel;
+		close(CLIPBOARD);
+	} else {
+		print STDERR "error running '$self->{copy_cmd}': $!\n";
+	}
+
+	()
+}
+
+sub paste_primary {
+	my ($self) = @_;
+
+	my $str = `xsel -o`;
+	if ($? == 0) {
+		$self->tt_paste($str);
+	} else {
+		print STDERR "error running '$self->{paste_cmd}': $!\n";
+	}
+
+	()
+}
+
+
+sub paste_clipboard {
+	my ($self) = @_;
+
+	my $str = `xsel -ob`;
+	if ($? == 0) {
+		$self->tt_paste($str);
+	} else {
+		print STDERR "error running '$self->{paste_cmd}': $!\n";
+	}
+
+	()
+}
+
+sub on_user_command {
+	my ($self, $cmd) = @_;
+
+	if ($cmd eq "clipboard:copy") {
+	   $self->copy;
+	} elsif ($cmd eq "clipboard:paste_primary") {
+	   $self->paste_primary;
+	} elsif ($cmd eq "clipboard:paste_clipboard") {
+	   $self->paste_clipboard;
+	}
+
+	()
+}
+
+sub sel_grab {
+	my ($self) = @_;
+
+	$self->copy;
+
+	()
+}

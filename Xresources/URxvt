@@ -15,7 +15,7 @@ URxvt.cursorBlink:           true
 URxvt.print-pipe:            cat > /tmp/urxvt_dump; urxvt -e vim /tmp/urxvt_dump &
 
 URxvt.perl-lib:              HOME/dotfiles/Xresources/lib/
-URxvt.perl-ext-common:       matcher,vim-scrollback
+URxvt.perl-ext-common:       matcher,vim-scrollback,clipboard
 URxvt.matcher.button:        2
 URxvt.url-launcher:          xdg-open
 URxvt.keysym.C-Delete:       perl:matcher:last
@@ -31,6 +31,11 @@ URxvt.vim-scrollback.launcher.3: xombrero jira-hzn.eng.vmware.com/browse/$1
 URxvt.vim-scrollback:        M-s
 URxvt.vim-scrollback-bg:     18
 URxvt.vim-scrollback-fg:     24
+
+! Clipboard plugin
+URxvt.keysym.M-p:            perl:clipboard:paste_primary
+URxvt.keysym.M-C-p:          perl:clipboard:paste_clipboard
+
 URxvt*saveLines:             12000
 URxvt*scrollstyle:           plain
 URxvt*scrollBar:             false
@@ -82,6 +87,8 @@ URxvt.color15:               #fdf6e3
 
 ! Disable annoying ctrl-shift functionality
 URxvt.iso14755:              false
+! Disavle the shift+Tab combination? http://unix.stackexchange.com/questions/50205/map-control-shift-tab-in-rxvt-unicode
+URxvt.iso14755_52:           false
 
 URxvt*keysym.C-F7:           command:\033]710;xft:terminus:pixelsize=12\007
 URxvt*keysym.C-F8:           command:\033]710;xft:terminus:pixelsize=14\007
