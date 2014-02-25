@@ -64,7 +64,12 @@ set beep_new=yes
 # index to see fold thread
 # default mutt index format: set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 # set index_format="%4C %?H?[%H] ? %Z %X %{%b %d} %-15.15F %?M?(#%03M)&(%4c)? %s"
-set index_format="%4C %?M?+& ?%02M %2e %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+# A great one I used before:
+# set index_format="%4C %?M?+& ?%02M %2e %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+
+# with a conditional message timestamp according to the date:
+set date_format="%Y %m %d"
+set index_format="~/dotfiles/mutt/format_index.py %D|"
 
 set quote_regexp="^([ \t]*[|>:])+"
 set nomarkers   # Remove + sign at the beginning of wrapped lines
