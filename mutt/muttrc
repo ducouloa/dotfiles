@@ -69,7 +69,10 @@ set beep_new=yes
 
 # with a conditional message timestamp according to the date:
 set date_format="%Y %m %d"
-set index_format="~/dotfiles/mutt/format_index.py %D|"
+set index_format="$HOME/dotfiles/mutt/format_index.py %D|"
+
+# output to awesome mailwidget the unread message numbers.
+set status_format="$HOME/dotfiles/mutt/status_format.sh %u|"
 
 set quote_regexp="^([ \t]*[|>:])+"
 set nomarkers   # Remove + sign at the beginning of wrapped lines
