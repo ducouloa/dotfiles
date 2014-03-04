@@ -135,6 +135,12 @@ function lp()
   ls -d -1 $PWD/$1/*
 }
 
+function w3ms()
+{
+# execute w3m and launch a google searh on the arguments strings
+  w3m http://www.google.com/search?q="`echo $@`"
+}
+
 function vim()
 {
   vi `echo $* | sed 's/:/ +/g'`
