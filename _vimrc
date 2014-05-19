@@ -11,11 +11,15 @@ set wildmenu
 "set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all.
 set wildmode=list:longest  " command <Tab> completion, list matches, then longest common part, then all.
 
+set incsearch
+set ignorecase
+set smartcase
 set list
 set listchars=tab:>·,trail:·,extends:#,nbsp:· " Highlight problematic whitespace
 set ruler
 set tabstop=4
 set shiftwidth=4
+set expandtab  " Majority of files I edit use spaces...
 set bg=dark
 set hls
 set modeline
@@ -247,7 +251,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 
 " The trigger used to display all triggers that could possible
 " match in the current position.
-let g:UltiSnipsListSnippets = "<leader><tab>"
+" let g:UltiSnipsListSnippets = "<leader><tab>"
 
 " The trigger used to jump forward to the next placeholder.
 " NOTE: expansion and forward jumping can, but needn't be the same trigger
@@ -258,6 +262,28 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 " /ultisnip/ }}}3
 
+
+" Plugin: supertTab {{{3
+" --------------------------------
+" Tab completion
+" clone of the github repo https://github.com/ervandew/supertab.git
+" /supertTab/ }}}3
+
+
+" Plugin: ctrlp {{{3
+" --------------------------------
+" Find file on the filesystem with a prompt.
+" clone of https://github.com/kien/ctrlp.vim
+"
+" /ctrlp/ }}}3
+
+
+" Plugin: clang_complete {{{3
+" --------------------------------
+" Clone of clang complete https://github.com/Rip-Rip/clang_complete.git
+" /clang_complete/ }}}3
+
+let g:clang_library_path='/usr/lib/llvm-3.2/lib'
 
 " /Plugins/ }}}2
 
@@ -322,6 +348,10 @@ nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
 nmap <leader>/ :let @/=""
 
+" Map <F1> to esc
+map <F1> <Esc>
+imap <F1> <Esc>
+
 "Allow saving during edition: Must be disable in the bashrc: stty -ixon
 imap <C-S> <C-O>:write
 nmap <C-S> :write
@@ -335,10 +365,6 @@ if has("autocmd")
   filetype on
   filetype plugin on
   filetype plugin indent on
-
-  autocmd BufEnter *.c set expandtab
-  autocmd BufEnter *.h set expandtab
-  autocmd BufEnter *.java set expandtab
 
   "setup SyntaxComplete for every filetype that does not already have a
   "language specific OMNI script
