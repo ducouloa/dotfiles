@@ -67,3 +67,6 @@
 [submodule "_vim/bundle/clang_complete"]
 	path = _vim/bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule "_vim/bundle/bookmarks"]
+	path = _vim/bundle/bookmarks
+	url = https://github.com/MattesGroeger/vim-bookmarks

@@ -281,9 +281,15 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " Plugin: clang_complete {{{3
 " --------------------------------
 " Clone of clang complete https://github.com/Rip-Rip/clang_complete.git
+let g:clang_library_path='/usr/lib/llvm-3.2/lib'
 " /clang_complete/ }}}3
 
-let g:clang_library_path='/usr/lib/llvm-3.2/lib'
+
+" Plugin: vim-bookmarks {{{3
+" --------------------------------
+" Clone of the github https://github.com/MattesGroeger/vim-bookmarks
+" /vim-bookmarks/ }}}3
+
 
 " /Plugins/ }}}2
 
