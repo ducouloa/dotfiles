@@ -313,8 +313,10 @@ xkb_keymap {
       type[group2] = "TWO_LEVEL" , [ backslash, brokenbar ]
     };
     key <LSGT> {
-      type[group1] = "ONE_LEVEL", [ VoidSymbol ], actions = [ SetGroup(group=3) ],
-      type[group2] = "TWO_LEVEL", [ VoidSymbol, VoidSymbol ]
+      // type[group1] = "ONE_LEVEL", [ VoidSymbol ], actions = [ SetGroup(group=3) ],
+      // type[group2] = "TWO_LEVEL", [ VoidSymbol, VoidSymbol ]
+      type[group1] = "FOUR_LEVEL", [ less, greater, lessthanequal, greaterthanequal ],
+      type[group2] = "TWO_LEVEL" , [ lessthanequal, greaterthanequal ]
     };
     // modifier_map Control { <LSGT> };
 
