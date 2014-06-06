@@ -51,7 +51,11 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 function parse_git_branch_and_add_cbrackets {
-/usr/bin/git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\{\1\}/'
+if [[ $PWD =~ .*dbc.* ]] ; then
+    echo dbc
+else
+    /usr/bin/git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\{\1\}/'
+fi
 }
 
 function return_android_serial {
@@ -75,7 +79,7 @@ function shorten_path {
   # reduce the full path to a shorter form
   # e.g. /home/ducouloa/long/path/to/directory/ → ~/l/p/t/directory
   redu=`echo $PWD |sed -r "s|$HOME|~|"`
-  echo $redu | sed -r 's;([^/]?)[^/]*/;\1/;g'
+  echo $redu | sed -r 's;([^/]{0,2})[^/]*/;\1/;g'
   unset redu
 }
 
@@ -122,12 +126,16 @@ alias viproj="vim +Project"
 alias wiki="vim +VimwikiIndex"
 # workaround the startify plugin with a throwaways variable 'a'
 alias diary="vim -c Diary trowaws +"
+alias acal="vim /home/aducoulombier/.local/share/acal/acal.ics"
 alias setandroidenv=". setandroidenv"
 
 # bd utility (back into directory) see submodule scripts/bd
 alias bd='. ~/dotfiles/scripts/bd/bd -si'
 # + add the autocompletion
 source ~/dotfiles/scripts/bd/bash_completion.d/bd
+
+# complete command launched through dbc
+complete -F _command dbc
 
 # display directory content with full path to open with vim-scrollable
 function lp()
@@ -178,6 +186,7 @@ stty -ixon
 bind -m vi-insert "\C-l":clear-screen
 
 export EDITOR=vi
+export BC_ENV_ARGS="-l"
 
 # autojump stuff
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
