@@ -293,6 +293,14 @@ let g:clang_library_path='/usr/lib/llvm-3.2/lib'
 
 " /Plugins/ }}}2
 
+
+
+" Plugin: minibufexpl {{{3
+" --------------------------------
+" clone of https://github.com/fholgado/minibufexpl.vim
+" Allow to visualize opened buffers
+" /minibufexpl/ }}}3
+
 " /Options/ }}}1
 
 " Section: Commands {{{1
