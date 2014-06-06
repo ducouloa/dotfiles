@@ -15,6 +15,8 @@ set editor="vim"
 # Sending Mail
 set copy=yes
 
+unset confirmappend
+
 # View special Formats
 set mailcap_path=~/.mutt/mailcap
 alternative_order text/plain text/enriched text/html
@@ -47,6 +49,7 @@ source ~/.mutt/colors.muttrc
 set mail_check=60
 # And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
 set timeout=10
+set imap_keepalive=100
 
 # Speed up folder swith
 set sleep_time=0
@@ -72,7 +75,7 @@ set date_format="%Y %m %d"
 set index_format="$HOME/dotfiles/mutt/format_index.py %D|"
 
 # output to awesome mailwidget the unread message numbers.
-set status_format="$HOME/dotfiles/mutt/status_format.sh %u|"
+set status_format="$HOME/dotfiles/mutt/status_format.sh %u %f|"
 
 set quote_regexp="^([ \t]*[|>:])+"
 set nomarkers   # Remove + sign at the beginning of wrapped lines
@@ -80,7 +83,8 @@ set nomark_old  # Just list unread messages.
 set delete=yes  # Don't ask when deleting messages
 set include=yes  # Include message in reply
 
-set pager_index_lines=0  # No index in pager
+set pager_index_lines=10  # 10 lines of index in the pager: allow to update the
+                          # awesome unread counter and help reading long mail thread
 # set pager_format="-%Z- %C/%m: %-20.20n   %s%*  -- (%P)"  # Mutt default
 set pager_format="%4C %Z %[!%b %e at %H:%M] %.20n %s%* -- (%P)"
 

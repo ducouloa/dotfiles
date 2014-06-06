@@ -1,5 +1,9 @@
-echo mailwidget:set_text\(\"$1\"\) | awesome-client
-if [ "$1" -eq "0" ]; then
+#!/bin/bash
+count=${1}
+box=${2:1:3}
+
+echo mailwidget:set_text\(\"${box}:${count}\"\) | awesome-client
+if [ "$count" -eq "0" ]; then
 	echo mailicon:set_image\(\"$HOME/.config/awesome/themes/ducouloa/icons/mail.png\"\) | awesome-client
 else
 	echo mailicon:set_image\(\"$HOME/.config/awesome/themes/ducouloa/icons/mail_on.png\"\) | awesome-client
