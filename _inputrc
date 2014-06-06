@@ -12,6 +12,7 @@
 # S-F4 to umount luks usb drive
 "[1;2S": "sudo ~/project/luks/umount_luks.sh"
 
+"\C-x\C-r": re-read-init-file
 # vi search with /
 # $if mode=vi
 # set keymap vi-command
