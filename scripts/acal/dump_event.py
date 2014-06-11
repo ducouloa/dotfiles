@@ -35,14 +35,14 @@ for event in cal.walk('vevent'):
    else:
       date = time
 
-   description = event.get('summary')
+   summary = event.get('summary')
    events.append({
       'date': date.strftime('%Y-%m-%d'),
       'start': time.strftime("%H:%M"),
-      'description': description if description else 'No Description',
+      'summary': summary if summary else 'No summary',
    })
 
 events.sort(key=lambda event: event['date'])
 
 for ev in events:
-   print (ev['date'] + ', ' + ev['start'] + ' __ ' + ev['description']).encode('utf-8')
+   print (ev['date'] + ', ' + ev['start'] + ' __ ' + ev['summary']).encode('utf-8')
