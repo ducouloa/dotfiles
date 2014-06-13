@@ -88,6 +88,9 @@ set pager_index_lines=10  # 10 lines of index in the pager: allow to update the
 # set pager_format="-%Z- %C/%m: %-20.20n   %s%*  -- (%P)"  # Mutt default
 set pager_format="%4C %Z %[!%b %e at %H:%M] %.20n %s%* -- (%P)"
 
+# Return to the line on plain text message at 120 column
+set wrap=120
+
 # use ldap seach
 set query_command="lbdbq %s* 2>/dev/null"
 ## Accont Local
