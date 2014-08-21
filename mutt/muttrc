@@ -98,5 +98,4 @@ set query_command="lbdbq %s* 2>/dev/null"
 ## folder-hook $folder 'source ~/.mutt/local'
 
 ## Account zimbra
-source "~/.mutt/zimbra"
-folder-hook $folder 'source ~/.mutt/zimbra'
+source "~/.mutt/imap_account"
