@@ -1,0 +1,11 @@
+snippet locr "local require" b
+
+local ${1:module} = require("${1/\s*$//}")
+
+endsnippet
+
+snippet :buttons "add awful button handler"
+
+:buttons(awful.util.table.join(awful.button({}, 1, function () $1 end)))
+
+endsnippet
