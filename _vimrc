@@ -35,6 +35,7 @@ set bs=2 "alow the suppression of everything in insert mode
 set pastetoggle=<F3>
 set nu
 set ls=2  " Always shows the statusbar
+set ttymouse=xterm2  " Allow the mouse to work on tmux
 set mouse=nv
 
 " set '=' as a file delimiter
@@ -75,6 +76,7 @@ source $VIMRUNTIME/macros/matchit.vim
 " --------------------------------
 " Copy of http://www.vim.org/scripts/script.php?script_id=69 v1.4.1
 " Manage vim project in a .vimproject file
+let g:proj_window_width = 35
 " /vim-project/ }}}3
 
 " Plugin: taskpaper {{{3
@@ -93,6 +95,7 @@ source $VIMRUNTIME/macros/matchit.vim
 " --------------------------------
 " clone git://github.com/Lokaltog/vim-easymotion
 " allow to move faster within vim buffer
+let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj,'
 " /vim-easymotion/ }}}3
 
 " Plugin: buffer-explorer {{{3
@@ -282,6 +285,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " --------------------------------
 " Clone of clang complete https://github.com/Rip-Rip/clang_complete.git
 let g:clang_library_path='/usr/lib/llvm-3.2/lib'
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'ultisnips'
 " /clang_complete/ }}}3
 
 
@@ -300,7 +305,8 @@ let g:clang_library_path='/usr/lib/llvm-3.2/lib'
 " clone of https://github.com/fholgado/minibufexpl.vim
 " Allow to visualize opened buffers
 " /minibufexpl/ }}}3
-
+" Only open MBE manually when needed
+let g:miniBufExplorerAutoStart = 0
 " /Options/ }}}1
 
 " Section: Commands {{{1
@@ -391,6 +397,8 @@ if has("autocmd")
   autocmd BufRead,BufNewFile session*.log set filetype=logcat
   autocmd BufRead,BufNewFile */configs/* set filetype=configs
   autocmd BufRead,BufNewFile *.aidl set filetype=java
+  autocmd BufRead,BufNewFile *.S set ts=8 filetype=armasm
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 endif  " has("autocmd")
 
