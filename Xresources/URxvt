@@ -42,7 +42,7 @@ URxvt*scrollBar:             false
 URxvt*cursorBlink:           true
 URxvt*cursorUnderline:       false
 URxvt.insecure:              true
-URxvt.visualBell:            true
+URxvt.visualBell:            false
 URxvt.urgentOnBell:          true
 
 
@@ -140,6 +140,7 @@ URxvt*keysym.S-F10            : \033[21;2~
 URxvt*keysym.S-F11            : \033[23;2~
 URxvt*keysym.S-F12            : \033[24;2~
 
+URxvt*keysym.S-Return         : \033[26$
 URxvt*keysym.S-Insert         : \033[2;2~
 URxvt*keysym.S-Delete         : \033[3;2~
 URxvt*keysym.S-Home           : \033[1;2H
@@ -224,6 +225,8 @@ URxvt*keysym.C-F10            : \033[21;5~
 URxvt*keysym.C-F11            : \033[23;5~
 URxvt*keysym.C-F12            : \033[24;5~
 
+URxvt*keysym.C-Return         : \033[26^
+URxvt*keysym.C-Tab            : \033[27;5~
 URxvt*keysym.C-Insert         : \033[2;5~
 ! URxvt*keysym.C-Delete         : \033[3;5~ !! Used for matcher goto last
 URxvt.keysym.C-Home           : \033[1;5H
@@ -252,6 +255,7 @@ URxvt*keysym.S-C-F10          : \033[21;6~
 URxvt*keysym.S-C-F11          : \033[23;6~
 URxvt*keysym.S-C-F12          : \033[24;6~
 
+URxvt*keysym.S-C-Tab          : \033[27;6~
 URxvt.keysym.S-C-Insert       : \033[2;6~
 URxvt.keysym.S-C-Delete       : \033[3;6~
 URxvt.keysym.S-C-Home         : \033[1;6H

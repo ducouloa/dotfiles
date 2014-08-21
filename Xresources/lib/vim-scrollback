@@ -598,7 +598,6 @@ sub key_press_normal {
       if ($DEBUG){
          my ($lnum, $cnum) = $self->screen_cur();
       }
-
    # marks
    } elsif ($string =~ /^m[a-z']$/) {
       (my $mark = $string) =~ s/^m(.)/\1/;
@@ -619,6 +618,12 @@ sub key_press_normal {
          $self->make_selection($event, $sl, $sc, $el, $ec, $self->{visual_rectangle});
          $self->{mode} = $self->{visual_mode};
       }
+   # yanking
+   } elsif ($string eq "y") {
+      my ($lnum, $cnum) = $self->screen_cur();
+      my $line = $self->line($lnum);
+      $self->{registers}{'"'} = $line->t;
+      $self->{mode_info} = "One line yanked";
    } elsif ($string eq "gf") {
       my ($lnum, $cnum) = $self->screen_cur();
       my @exec = $self->command_for($lnum, $cnum);
@@ -703,6 +708,7 @@ sub key_press_visual {
          $self->normal_mode($event, 1);
       }else{
          $self->{mode} = "visual";
+         $self->{mode_info} = "-- VISUAL -- ";
          $self->{mode_info} = "-- VISUAL -- ";
          my ($lnum, $cnum) = $self->screen_cur();
          $self->move_cursor($event, $lnum, $cnum);

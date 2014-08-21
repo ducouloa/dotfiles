@@ -4,8 +4,9 @@ XTerm*VT100.allowWindowOps: true
 XTerm*VT100.allowTitleOps: true
 XTerm*VT100.allowFontOps: true
 
-XTerm.geometry: 100x45
+XTerm*geometry: 120x75
 XTerm*insecure: true
+XTerm*saveLines: 16000
 
 !urxvt color scheme:
 
