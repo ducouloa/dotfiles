@@ -125,8 +125,7 @@ alias am="adb shell am"
 alias viproj="vim +Project"
 alias wiki="vim +VimwikiIndex"
 # workaround the startify plugin with a throwaways variable 'a'
-alias diary="vim -c Diary trowaws +"
-alias acal="vim /home/aducoulombier/.local/share/acal/acal.ics"
+alias diary="vim -c Diary +"
 alias setandroidenv=". setandroidenv"
 
 # bd utility (back into directory) see submodule scripts/bd
@@ -187,6 +186,7 @@ bind -m vi-insert "\C-l":clear-screen
 
 export EDITOR=vi
 export BC_ENV_ARGS="-l"
+export PROMPT_COMMAND='echo -ne "\a"'
 
 # autojump stuff
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
