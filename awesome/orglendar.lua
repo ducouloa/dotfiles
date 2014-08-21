@@ -13,12 +13,14 @@ local tonumber = tonumber
 local string = string
 local table = table
 local awful = require("awful")
+local mouse = mouse
 local util = awful.util
 local theme = require("beautiful")
 local naughty = require("naughty")
 local print = print
 
 module("orglendar")
+
 
 files = {}
 char_width_9 = 7.3
@@ -198,6 +200,14 @@ function hide()
   end
 end
 
+function toggle()
+    if calendar == nil then
+        show(0)
+    else
+        hide()
+    end
+end
+
 function show(inc_offset)
    inc_offset = inc_offset or 0
 
@@ -213,14 +223,14 @@ function show(inc_offset)
    calendar = naughty.notify { title = header,
                                text = cal_text,
                                timeout = 0, hover_timeout = 0.5,
-                               -- screen = mouse.screen,
+                               screen = mouse.screen,
                                width = calendar_width * char_width_9,
                                -- position = "top_right",
                             }
-   todo = naughty.notify { title = "TO-DO list",
+   todo = naughty.notify { title = "Events",
                            text = create_todo(),
                            timeout = 0, hover_timeout = 0.5,
-                           -- screen = mouse.screen,
+                           screen = mouse.screen,
                            -- width = (data.maxlen + 3) * char_width_8,
                            -- position = "top_right",
                         }
