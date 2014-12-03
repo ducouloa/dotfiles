@@ -15,6 +15,7 @@ set editor="vim"
 # Sending Mail
 set copy=yes
 
+set sort=threads
 unset confirmappend
 
 # View special Formats
@@ -27,14 +28,13 @@ set allow_ansi  # For seeing color rendering
 
 
 # sidebar patch
-set nosidebar_visible
-set sidebar_width=30
-set sidebar_sort
+# set nosidebar_visible
+# set sidebar_width=30
+# set sidebar_sort
 set nohelp
 
 bind pager b previous-page
 # macro index n "<clear-flag>N"
-macro index \eo "|~/dotfiles/mutt/mutt_rb<enter>"
 
 # Don't wait to enter mailbox manually
 # set imap_list_subscribed
@@ -57,9 +57,11 @@ set sleep_time=0
 set beep_new=yes
 
 # activate TLS if available on the server
-# set ssl_starttls=yes
+# set ssl_starttls=no
+# unset ssl_starttls
 # always use SSL when connecting to server
 # set ssl_force_tls=yes
+# unset ssl_force_tls
 
 
 ## Apperance
@@ -96,6 +98,9 @@ set query_command="lbdbq %s* 2>/dev/null"
 ## Accont Local
 ## source "~/.mutt/local"
 ## folder-hook $folder 'source ~/.mutt/local'
+
+set alias_file=~/.mutt/aliases
+source $alias_file
 
 ## Account zimbra
 source "~/.mutt/imap_account"
