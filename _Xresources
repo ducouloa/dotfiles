@@ -6,3 +6,8 @@
 #include "dotfiles/Xresources/URxvt"
 
 #include "dotfiles/Xresources/XTerm"
+
+Xpdf*fontList: -*-terminus-medium-r-*-*-*-120-*-*-*-*
+Xpdf*Background: #657b83
+Xpdf*Foreground: #002b36
+Xpdf.matteColor: #073642
