@@ -1,0 +1,21 @@
+! tweaked mono3
+background= grey14
+foreground= grey88
+cursorColor= green
+color0=      #000000
+color1=      #545f65
+color2=      #6d787c
+color3=      #dee2e3
+color4=      #9ea8aa
+color5=      #97a1a3
+color6=      #97a1a3
+color7=      #dee2e3
+color8=      #666666
+color9=      #dae3e8
+color10=     #99a2a7
+color11=     #efef60
+color12=     #dee2e3
+color13=     #c2c7ca
+color14=     #c2c7ca
+color15=     #efefef
+

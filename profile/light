@@ -1,0 +1,21 @@
+! thayer lightr,
+! https=//github.com/thayerwilliams/dotfiles-msi
+foreground=#555555
+background=#ffffff
+color0= #555555
+color8= #222222
+color1= #ff005f
+color9= #ff00af
+color2= #008700
+color10= #00af00
+color3= #ff8700
+color11= #ffaf00
+color4= #000087
+color12= #0000ff
+color5= #870087
+color13= #af00d7
+color6= #0087af
+color14= #00afd7
+color7= #afafaf
+color15= #ffffff
+

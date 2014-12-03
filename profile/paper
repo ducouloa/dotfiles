@@ -1,0 +1,26 @@
+foreground= #040914
+background= #e5dfc5
+cursorColor= #000000
+internalBorder= 2
+borderColor= #e5dfc5
+font= xft:Unifont
+faceName= Unifont
+colorMode= false
+transparent= 0
+color0= #000000
+color1= #ff005f
+color2= #008700
+color3= #d8bf00
+color4= #004586
+color5= #870087
+color6= #0087af
+color7= #777777
+color8= #000000
+color9= #ff00af
+color10= #00af00
+color11= #d8bf00
+color12= #0066cc
+color13= #af00d7
+color14= #00afd7
+color15= #aaaaaa
+

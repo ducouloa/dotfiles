@@ -1,0 +1,21 @@
+! matrix, tinted thayer grey
+foreground= #3f7f3f
+background= #000000
+color0= #000000
+color8= #112211
+color1= #214321
+color9= #214321
+color2= #356b35
+color10= #52a552
+color3= #4b964b
+color11= #72e572
+color4= #254a25
+color12= #264d26
+color5= #387038
+color13= #3a743a
+color6= #54a954
+color14= #62c462
+color7= #7fff7f
+color15= #6fde6f
+transparent= 0
+

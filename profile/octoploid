@@ -1,0 +1,21 @@
+! octoploid, KDE Black on White
+background= #fffdf0
+foreground= #000000
+color8= #121212
+color0= #686868
+color9= #b22121
+color1= #cd2525
+color10= #8abe31
+color2= #8ab83f
+color11= #ffa500
+color3= #ffb70f
+color12= #265b97
+color4= #3f6fd0
+color13= #ee3a8e
+color5= #cd327a
+color14= #668b8b
+color6= #008b8b
+color15= #b2b2b2
+color7= #e8e8e8
+transparent= 0
+
