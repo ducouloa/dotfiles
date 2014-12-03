@@ -1,0 +1,14 @@
+#!/bin/bash
+
+. /home/aducoulombier/dotfiles/scripts/menu.sh
+
+if [[ $# -lt 1 ]]; then
+    boards=`adb devices |grep -v ^List | cut -f1 |tr \n \ `
+    andro_serial=$(select_menu $boards)
+else
+    andro_serial=$@
+fi
+
+ANDROID_SERIAL=$andro_serial
+DEPLOY_IP=localhost:$andro_serial
+export ANDROID_SERIAL DEPLOY_IP

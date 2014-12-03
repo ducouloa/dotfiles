@@ -1,0 +1,57 @@
+#!/bin/bash
+
+LOGFILE=
+OPTIONS=" -v threadtime "
+
+while getopts ":csdf:" optname
+ do
+   case "$optname" in
+     "c")
+       # echo "Option $optname is specified"
+       adb logcat -c
+       exit 0
+       ;;
+     "d")
+       OPTIONS=$OPTIONS" -d "
+       echo option $OPTIONS
+       ;;
+     "s")
+       OPTIONS=$OPTIONS" -s "
+       ;;
+     "f")
+       # echo "Option $optname has value $OPTARG"
+       LOGFILE=" | tee "$OPTARG
+       ;;
+     "?")
+       # echo "Unknown option $OPTARG"
+       ;;
+     ":")
+       # echo "No argument value for option $OPTARG"
+       ;;
+     *)
+     # Should not occur
+       echo "Unknown error while processing options"
+       ;;
+   esac
+ done
+
+arglist=${@:$OPTIND}
+
+for arg in $arglist
+    do
+        if [[ "$arg" == *":"* ]]; then 
+            logOpt+=$arg" "
+        else
+            grepOpt+=" "$arg
+        fi
+    done
+
+if [ -n "$grepOpt" ]; then
+    grepOpt=" | egrep -i '("$(echo $grepOpt | tr ' ' \|)")'"
+fi
+
+echo -----------------------------
+echo adb logcat $OPTIONS $logOpt $LOGFILE $grepOpt \| logcat-colorize
+echo -----------------------------
+
+eval "$(echo adb logcat $OPTIONS $logOpt $LOGFILE $grepOpt \| logcat-colorize)"

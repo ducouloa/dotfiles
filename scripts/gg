@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# change the position of the terminal on the first monitor
+
+RESIZE_CMD="xtermcontrol -f --geom "
+if [ -n "$1" ]; then
+	current_geom=$1
+else
+	current_geom=`xtermcontrol -f --get-geom`
+fi
+
+g1="100x45+992+0"
+g2="127x33+830+0"
+g3="100x45+992+561"
+
+a="86x21+985+0"
+
+case "$current_geom" in
+	$g1)
+		$RESIZE_CMD $g2
+		;;
+
+	$g2)
+		$RESIZE_CMD $g3
+		;;
+	
+	$g3)
+		$RESIZE_CMD $g1
+		;;
+	a)
+		$RESIZE_CMD $a
+		;;
+	*)
+		$RESIZE_CMD $g1
+		;;
+esac

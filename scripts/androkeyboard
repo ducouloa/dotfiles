@@ -1,0 +1,214 @@
+#!/usr/bin/python
+import pexpect
+import time
+import re
+import termios, sys, os
+TERMIOS = termios
+
+keymap_full = {
+    "unknown": "KEYCODE_UNKNOWN",
+    "menu": "KEYCODE_MENU",
+    "soft_tight": "KEYCODE_SOFT_RIGHT",
+    "home": "KEYCODE_HOME",
+    "back": "KEYCODE_BACK",
+    "cal": "KEYCODE_CALL",
+    "endall": "KEYCODE_ENDCALL",
+    "0": "KEYCODE_0",
+    "1": "KEYCODE_1",
+    "2": "KEYCODE_2",
+    "3": "KEYCODE_3",
+    "4": "KEYCODE_4",
+    "5": "KEYCODE_5",
+    "6": "KEYCODE_6",
+    "7": "KEYCODE_7",
+    "8": "KEYCODE_8",
+    "9": "KEYCODE_9",
+    "*": "KEYCODE_STAR",
+    "$": "KEYCODE_POUND",
+    "ax": "KEYCODE_DPAD_UP",
+    "0x": "KEYCODE_DPAD_DOWN",
+    "1x": "KEYCODE_DPAD_LEFT",
+    "2x": "KEYCODE_DPAD_RIGHT",
+    "3x": "KEYCODE_DPAD_CENTER",
+    "4x": "KEYCODE_VOLUME_UP",
+    "5x": "KEYCODE_VOLUME_DOWN",
+    "6x": "KEYCODE_POWER",
+    "7x": "KEYCODE_CAMERA",
+    "8x": "KEYCODE_CLEAR",
+    "a": "KEYCODE_A",
+    "b": "KEYCODE_B",
+    "c": "KEYCODE_C",
+    "d": "KEYCODE_D",
+    "e": "KEYCODE_E",
+    "f": "KEYCODE_F",
+    "g": "KEYCODE_G",
+    "h": "KEYCODE_H",
+    "i": "KEYCODE_I",
+    "j": "KEYCODE_J",
+    "k": "KEYCODE_K",
+    "l": "KEYCODE_L",
+    "m": "KEYCODE_M",
+    "n": "KEYCODE_N",
+    "o": "KEYCODE_O",
+    "p": "KEYCODE_P",
+    "q": "KEYCODE_Q",
+    "r": "KEYCODE_R",
+    "s": "KEYCODE_S",
+    "t": "KEYCODE_T",
+    "u": "KEYCODE_U",
+    "v": "KEYCODE_V",
+    "w": "KEYCODE_W",
+    "x": "KEYCODE_X",
+    "y": "KEYCODE_Y",
+    "z": "KEYCODE_Z",
+    ",": "KEYCODE_COMMA",
+    ".": "KEYCODE_PERIOD",
+    "alt_left": "KEYCODE_ALT_LEFT",
+    "alt_right": "KEYCODE_ALT_RIGHT",
+    "shift_left": "KEYCODE_SHIFT_LEFT",
+    "shift_right": "KEYCODE_SHIFT_RIGHT",
+    "tab": "KEYCODE_TAB",
+    " ": "KEYCODE_SPACE",
+    "sym": "KEYCODE_SYM",
+    "explorer": "KEYCODE_EXPLORER",
+    "envelop": "KEYCODE_ENVELOPE",
+    "enter": "KEYCODE_ENTER",
+    "del": "KEYCODE_DEL",
+    "`": "KEYCODE_GRAVE",
+    "-": "KEYCODE_MINUS",
+    "=": "KEYCODE_EQUALS",
+    "{": "KEYCODE_LEFT_BRACKET",
+    "}": "KEYCODE_RIGHT_BRACKET",
+    "\\": "KEYCODE_BACKSLASH",
+    ";": "KEYCODE_SEMICOLON",
+    "'": "KEYCODE_APOSTROPHE",
+    "/": "KEYCODE_SLASH",
+    "@": "KEYCODE_AT",
+    "num": "KEYCODE_NUM",
+    "headset": "KEYCODE_HEADSETHOOK",
+    "focus": "KEYCODE_FOCUS",
+    "l+": "KEYCODE_PLUS",
+    "menu": "KEYCODE_MENU",
+    "notification": "KEYCODE_NOTIFICATION",
+    "serch": "KEYCODE_SEARCH",
+    "last": "TAG_LAST_KEYCODE"
+    }
+
+keymap_command = {
+    "unknown": "KEYCODE_UNKNOWN",
+    "soft_tight": "KEYCODE_SOFT_RIGHT",
+    "o": "KEYCODE_HOME",
+    "u": "KEYCODE_BACK",
+    "cal": "KEYCODE_CALL",
+    "endall": "KEYCODE_ENDCALL",
+    "k": "KEYCODE_DPAD_UP",
+    "j": "KEYCODE_DPAD_DOWN",
+    "h": "KEYCODE_DPAD_LEFT",
+    "l": "KEYCODE_DPAD_RIGHT",
+    "n": "KEYCODE_DPAD_CENTER",
+    "+": "KEYCODE_VOLUME_UP",
+    "-": "KEYCODE_VOLUME_DOWN",
+    "q": "KEYCODE_POWER",
+    "7x": "KEYCODE_CAMERA",
+    "8x": "KEYCODE_CLEAR",
+    "alt_left": "KEYCODE_ALT_LEFT",
+    "alt_right": "KEYCODE_ALT_RIGHT",
+    "shift_left": "KEYCODE_SHIFT_LEFT",
+    "shift_right": "KEYCODE_SHIFT_RIGHT",
+    "tab": "KEYCODE_TAB",
+    " ": "KEYCODE_SPACE",
+    "sym": "KEYCODE_SYM",
+    "explorer": "KEYCODE_EXPLORER",
+    "envelop": "KEYCODE_ENVELOPE",
+    "\n": "KEYCODE_ENTER",
+    "x": "KEYCODE_DEL",
+    "`": "KEYCODE_GRAVE",
+    "s-": "KEYCODE_MINUS",
+    "=": "KEYCODE_EQUALS",
+    "{": "KEYCODE_LEFT_BRACKET",
+    "}": "KEYCODE_RIGHT_BRACKET",
+    "\\": "KEYCODE_BACKSLASH",
+    ";": "KEYCODE_SEMICOLON",
+    "'": "KEYCODE_APOSTROPHE",
+    "slash": "KEYCODE_SLASH",
+    "@": "KEYCODE_AT",
+    "num": "KEYCODE_NUM",
+    "headset": "KEYCODE_HEADSETHOOK",
+    "focus": "KEYCODE_FOCUS",
+    "x+": "KEYCODE_PLUS",
+    "m": "KEYCODE_MENU",
+    "notification": "KEYCODE_NOTIFICATION",
+    "/": "KEYCODE_SEARCH",
+    "last": "TAG_LAST_KEYCODE"
+}
+
+def getkey():
+    fd = sys.stdin.fileno()
+    old = termios.tcgetattr(fd)
+    new = termios.tcgetattr(fd)
+    new[3] = new[3] & ~TERMIOS.ICANON & ~TERMIOS.ECHO
+    new[6][TERMIOS.VMIN] = 1
+    new[6][TERMIOS.VTIME] = 0
+    termios.tcsetattr(fd, TERMIOS.TCSANOW, new)
+    c = None
+    try:
+        c = os.read(fd, 1)
+    finally:
+        termios.tcsetattr(fd, TERMIOS.TCSAFLUSH, old)
+    return c
+
+def prompt(process):
+    while process.expect(["[androkeybd]", pexpect.EOF, pexpect.TIMEOUT], timeout=1) != 0:
+        process.send("\n")
+
+
+adb_shell = pexpect.spawn("adb shell")
+#adb_shell = pexpect.spawn("adb shell", logfile=sys.stdout)
+time.sleep(1)
+adb_shell.setecho(False)
+adb_shell.sendline("export PS1='[androkeybd]'\n")
+adb_shell.expect(["[androkeybd]", pexpect.EOF, pexpect.TIMEOUT])
+
+def interactive_mode():
+    while True:
+        print "[cmd]"
+        current_key = getkey()
+
+        if current_key == "i":
+            text = raw_input("INSERT --> ")
+            text_chunk = text.split()
+            flp1 = False
+            for chunk in text_chunk:
+                if flp1:
+                    adb_shell.sendline('input keyevent KEYCODE_SPACE')
+                    prompt(adb_shell)
+                flp1 = True
+                flp2 = False
+                for apst in chunk.split("'"):
+                    if flp2:
+                        adb_shell.sendline('input keyevent KEYCODE_APOSTROPHE')
+                        prompt(adb_shell)
+                    flp2 = True
+                    adb_shell.sendline("input text %s" % apst)
+                    prompt(adb_shell)
+        else:
+            try:
+                adb_shell.sendline("input keyevent %s" % keymap_command[current_key])
+                prompt(adb_shell)
+                print "send %s" % keymap_command[current_key]
+            except KeyError:
+                print "command %s not mapped" % current_key
+
+
+if len(sys.argv) == 1:
+    interactive_mode()
+else:
+    for i in range(1,len(sys.argv)):
+        try:
+            adb_shell.sendline("input keyevent %s" % keymap_command[sys.argv[i]])
+            prompt(adb_shell)
+            print "send %s" % keymap_command[sys.argv[i]]
+        except KeyError:
+            print "command %s not mapped" % sys.argv[i]
+
+    interactive_mode()
