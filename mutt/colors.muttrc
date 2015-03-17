@@ -106,6 +106,3 @@ color body          red             default         "([a-z][a-z0-9+-]*://(((([a-
 # Folder hook colors
 folder-hook . 'source ~/.mutt/uncolorize_diffs'
 folder-hook mvp_diff 'source ~/.mutt/colorize_diffs'
-
-# Sidebar patch colors
-color sidebar_new     green default
