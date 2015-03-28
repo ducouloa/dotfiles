@@ -9,3 +9,6 @@ set imap_pass="PASSWORD"
 set folder="imap://f.lastname:PASSWORD@127.0.0.1:1143"
 
 set spoolfile=+INBOX
+
+set smtp_url = "smtps://{votre @ email}@smtp.gmail.com:587/"
+set smtp_pass = "{votre password}"
