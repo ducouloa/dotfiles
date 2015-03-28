@@ -1,0 +1,11 @@
+#vim: filetype muttrc
+
+set from="f.lastname@company.com"
+set realname='Firstname Lastname'
+
+set imap_user="f.lastname@company.com"
+set imap_pass="PASSWORD"
+
+set folder="imap://f.lastname:PASSWORD@127.0.0.1:1143"
+
+set spoolfile=+INBOX
