@@ -76,3 +76,21 @@
 [submodule "_vim/bundle/dirdiff"]
 	path = _vim/bundle/dirdiff
 	url = https://github.com/vim-scripts/DirDiff.vim
+[submodule "_vim/bundle/emmet-vim"]
+	path = _vim/bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
+[submodule "_vim/bundle/textile"]
+	path = _vim/bundle/textile
+	url = https://github.com/amiorin/vim-textile.git
+[submodule "_vim/bundle/redminewiki"]
+	path = _vim/bundle/redminewiki
+	url = https://github.com/s3rvac/vim-syntax-redminewiki.git
+[submodule "_vim/bundle/css-color"]
+	path = _vim/bundle/css-color
+	url = https://github.com/ap/vim-css-color.git
+[submodule "_vim/bundle/table-mode"]
+	path = _vim/bundle/table-mode
+	url = http://github.com/dhruvasagar/vim-table-mode.git
+[submodule "_vim/bundle/closetag"]
+	path = _vim/bundle/closetag
+	url = https://github.com/docunext/closetag.vim.git
