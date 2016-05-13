@@ -44,6 +44,9 @@ function PythonToggleIndent()
 endfunction
 
 command! -nargs=0 PyToggleIndent call PythonToggleIndent()
+
+" Execute current file when <F5> is pressed
+nmap <F5> :!python2.7 %
 " }}}
 
 

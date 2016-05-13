@@ -1,17 +1,20 @@
 # text/html; /usr/bin/w3m %s; needsterminal;
 # text/html; xombrero %s; nametemplate=%s.html
-text/html; sensible-browser %s 2> /dev/null & sleep 2 ; nametemplate=%s.html
+text/html; dwb %s 2> /dev/null & sleep 2 ; nametemplate=%s.html
 text/html; w3m -T text/html -cols 120 -dump -o display_link_number=1 %s; copiousoutput
 # text/html; links2 -dump %s; nametemplate=%s.html; copiousoutput
 application/vnd.openxmlformats-officedocument.presentationml.presentation; libreoffice '%s'
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice '%s'
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice '%s'
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/local/bin/docx2txt.sh %s; copiousoutput
 application/vnd.ms-powerpoint; libreoffice '%s'
-application/pdf; /usr/bin/xdg-open %s
-image/png; /usr/bin/feh %s
-image/jpg; /usr/bin/feh %s
-image/jpeg; /usr/bin/feh %s
-image/gif; /usr/bin/feh %s
+application/pdf; xpdf %s
+image/png; /usr/bin/sxiv %s
+image/jpg; /usr/bin/sxiv %s
+image/jpeg; /usr/bin/sxiv %s
+image/gif; /usr/bin/sxiv %s
+video/quicktime; /usr/bin/mplayer %s
 
-text/calendar; /home/aducoulombier/dotfiles/scripts/acal/acal.py %s
+text/calendar; /home/alain/dotfiles/scripts/acal/acal.py %s
 text/x-diff; cat %s | colordiff; copiousoutput
 text/x-patch; cat %s | colordiff; copiousoutput

@@ -57,7 +57,7 @@ local function parse_agenda()
    data = { tasks = {}, dates = {}, maxlen = 20 }
 
    local task_project
-   local events = io.popen('/home/aducoulombier/dotfiles/scripts/acal/dump_event.py', 'r')
+   local events = io.popen('/home/alain/dotfiles/scripts/acal/dump_event.py', 'r')
 
    for line in events:lines() do
       local _, _, y, m, d, summary = string.find(line, "(%d%d%d%d)-(%d%d)-(%d%d)(.*)")

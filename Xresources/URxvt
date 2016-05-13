@@ -2,7 +2,7 @@
 ! URxvt xresources configuration
 
 #ifndef HOME
-#define HOME /home/ducouloa
+#define HOME /home/alain
 #endif
 
 ! URxvt*termName:screen-256color
@@ -13,19 +13,22 @@ URxvt.scrollBar:             off
 URxvt*shading:               30
 URxvt.cursorBlink:           true
 URxvt.print-pipe:            cat > /tmp/urxvt_dump; urxvt -e vim /tmp/urxvt_dump &
+URxvt.cutchars:              '"()*,<>[]{}|┤─├'
 
-URxvt.perl-lib:              HOME/dotfiles/Xresources/lib/
-URxvt.perl-ext-common:       matcher,vim-scrollback,clipboard
+URxvt.perl-lib:              /home/alain/dotfiles/Xresources/lib/
+URxvt.perl-ext-common:       matcher,vim-scrollback,clipboard,font-size
 URxvt.matcher.button:        2
-URxvt.url-launcher:          xdg-open
+URxvt.url-launcher:          dwb
+URxvt.matcher.pattern.3:     \\B(/home/alain/\\S+)
+URxvt.matcher.launcher.3:    sxiv $1
 URxvt.keysym.C-Delete:       perl:matcher:last
 URxvt.keysym.M-Delete:       perl:matcher:list
 
 ! Configure vim-scrollback specific matchers
-URxvt.vim-scrollback.pattern.1: \\B(/\\S+)
-URxvt.vim-scrollback.launcher.1: xdg-open
+URxvt.vim-scrollback.pattern.1: \\B/home/alain(/\\S+)
+URxvt.vim-scrollback.launcher.1: xdg-open /home/alain$1
 URxvt.vim-scrollback.pattern.2: \\B~(/\\S+)
-URxvt.vim-scrollback.launcher.2: xdg-open HOME$1
+URxvt.vim-scrollback.launcher.2: xdg-open /home/alain$1
 URxvt.vim-scrollback.pattern.3: \\b(HW\\-\\d{5})
 URxvt.vim-scrollback.launcher.3: xombrero jira-hzn.eng.vmware.com/browse/$1
 URxvt.vim-scrollback:        M-s
@@ -48,50 +51,103 @@ URxvt.urgentOnBell:          true
 
 !urxvt fonts:
 !URxvt.font:                  -*-terminus-medium-*-*-*-*-120-*-*-*-*
-URxvt.font:                  xft:terminus:pixelsize=12
+! URxvt.font:                  xft:terminus:pixelsize=12
+! URxvt.font:                  xft:Source Code Pro:pixelsize=10
+! URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+URxvt*font: xft:DejaVu\ Sans\ Mono:pixelsize=12
+URxvt.letterSpace:           -2
 ! Installing the xterm-font package avoid specifing italic alternative
 ! URxvt.boldFont:              xft:terminus:bold:pixelsize=12
 ! URxvt.italicFont:            xft:inconsolata:italic:pixelsize=12
 ! URxvt.bolditalicFont:        xft:inconsolata:bold:italic:pixelsize=11
 
-! Color
-URxvt.background:            #002b36
-URxvt.foreground:            #657b83
-URxvt.fading:                20
-URxvt.fadeColor:             #002b36
-URxvt.cursorColor:           #93a1a1
-URxvt.pointerColor:          #586e75
-URxvt.pointerColor2:         #93a1a1
-! URxvt.underlineColor:#b50089
-!URxvt.colorUL: #86a2be
-!URxvt.colorIT:               #798f97
-URxvt.colorBD:               #758b93
-URxvt.underlineColor:        #3465A4
+!! drop in Solarized colorscheme for Xresources
+!!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
+!!--------- ------- ---- -------  ----------- ---------- ----------- -----------
+!!base03    #002b36  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
+!!base02    #073642  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
+!!base01    #586e75 10/7 brgreen  240 #585858 45 -07 -07  88 110 117 194  25  46
+!!base00    #657b83 11/7 bryellow 241 #626262 50 -07 -07 101 123 131 195  23  51
+!!base0     #839496 12/6 brblue   244 #808080 60 -06 -03 131 148 150 186  13  59
+!!base1     #93a1a1 14/4 brcyan   245 #8a8a8a 65 -05 -02 147 161 161 180   9  63
+!!base2     #eee8d5  7/7 white    254 #e4e4e4 92 -00  10 238 232 213  44  11  93
+!!base3     #fdf6e3 15/7 brwhite  230 #ffffd7 97  00  10 253 246 227  44  10  99
+!!yellow    #b58900  3/3 yellow   136 #af8700 60  10  65 181 137   0  45 100  71
+!!orange    #cb4b16  9/3 brred    166 #d75f00 50  50  55 203  75  22  18  89  80
+!!red       #dc322f  1/1 red      160 #d70000 50  65  45 220  50  47   1  79  86
+!!magenta   #d33682  5/5 magenta  125 #af005f 50  65 -05 211  54 130 331  74  83
+!!violet    #6c71c4 13/5 brmagenta 61 #5f5faf 50  15 -45 108 113 196 237  45  77
+!!blue      #268bd2  4/4 blue      33 #0087ff 55 -10 -45  38 139 210 205  82  82
+!!cyan      #2aa198  6/6 cyan      37 #00afaf 60 -35 -05  42 161 152 175  74  63
+!!green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
 
-URxvt.color0:                #073642
-URxvt.color1:                #dc322f
-URxvt.color2:                #859900
-URxvt.color3:                #b58900
-URxvt.color4:                #268bd2
-URxvt.color5:                #d33682
-URxvt.color6:                #2aa198
-URxvt.color7:                #eee8d5
-URxvt.color8:                #002b36
-URxvt.color9:                #cb4b16
-URxvt.color10:               #586e75
-URxvt.color11:               #657b83
-URxvt.color12:               #839496
-URxvt.color13:               #6c71c4
-URxvt.color14:               #93a1a1
-URxvt.color15:               #fdf6e3
+
+!! This is the `light' solarized scheme, for `dark' see https://github.com/altercation/solarized/blob/master/xresources-colors-solarized/Xresources
+
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+URxvt.background:            S_base3
+URxvt.foreground:            S_base00
+URxvt.fading:                30
+URxvt.fadeColor:             S_base3
+URxvt.cursorColor:           S_base01
+URxvt.pointerColorBackground:S_base1
+URxvt.pointerColorForeground:S_base01
+
+!! black dark/light
+URxvt.color0:                S_base02
+URxvt.color8:                S_base03
+
+!! red dark/light
+URxvt.color1:                S_red
+URxvt.color9:                S_orange
+
+!! green dark/light
+URxvt.color2:                S_green
+URxvt.color10:               S_base01
+
+!! yellow dark/light
+URxvt.color3:                S_yellow
+URxvt.color11:               S_base00
+
+!! blue dark/light
+URxvt.color4:                S_blue
+URxvt.color12:               S_base0
+
+!! magenta dark/light
+URxvt.color5:                S_magenta
+URxvt.color13:               S_violet
+
+!! cyan dark/light
+URxvt.color6:                S_cyan
+URxvt.color14:               S_base1
+
+!! white dark/light
+URxvt.color7:                S_base2
+URxvt.color15:               S_base3
 
 ! Disable annoying ctrl-shift functionality
-URxvt.iso14755:              false
+! URxvt.iso14755:              false
 ! Disavle the shift+Tab combination? http://unix.stackexchange.com/questions/50205/map-control-shift-tab-in-rxvt-unicode
-URxvt.iso14755_52:           false
+! URxvt.iso14755_52:           false
 
-URxvt*keysym.C-F7:           command:\033]710;xft:terminus:pixelsize=12\007
-URxvt*keysym.C-F8:           command:\033]710;xft:terminus:pixelsize=14\007
+URxvt.keysym.C-F7:     font-size:decrease
+URxvt.keysym.C-F8:     font-size:increase
 
 !------------------------------------------------------------------
 ! emulate XTerm for proper recognition of key combinations in Vim !

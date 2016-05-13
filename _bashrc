@@ -24,11 +24,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
@@ -51,16 +46,12 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 function parse_git_branch_and_add_cbrackets {
-if [[ $PWD =~ .*dbc.* ]] ; then
-    echo dbc
-else
-    /usr/bin/git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\{\1\}/'
-fi
+    /usr/bin/git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/┤\1├/'
 }
 
 function return_android_serial {
 if [ -n "$ANDROID_SERIAL" ]; then
-  echo " [$ANDROID_SERIAL]"
+  echo "┤$ANDROID_SERIAL├"
 else
   echo ""
 fi
@@ -83,15 +74,42 @@ function shorten_path {
   unset redu
 }
 
-PS1='${debian_chroot:+($debian_chroot)}'
-#PS1+='\[\033[01;30m\][\t]\[\033[00m\]'
-PS1+='\[\033[35m\]$(parse_git_branch_and_add_cbrackets)\[\033[00m\]'
+function fill_prompt {
+  ZEXIT="${?}"
+  [ "$ZEXIT" = "0" ] && ZEXIT=""
+
+  ZGIT="$(parse_git_branch_and_add_cbrackets)"
+  ZPATH="$(eval "shorten_path")"
+  ZANDROID_SERIAL=$(return_android_serial)
+
+  local fillsize
+  local gflength=15
+  let fillsize=${COLUMNS}-${#ZEXIT}-${#ZGIT}-${#ZPATH}-${#ZANDROID_SERIAL}-${gflength}
+  ZFILL=""
+  while [ "$fillsize" -gt "0" ]; do
+    ZFILL="$ZFILL─"
+    let fillsize=${fillsize}-1
+  done
+  # echo "\n┌──\[\033[35m\]$ZGIT\[\033[00m\]─┤\[\033[34m\]$ZPATH\[\033[00m\]├─$ZFILL─┤\t├─"
+  # echo $ZGIT$ZPATH$ZANDROID_SERIAL$ZFILL
+}
+
+PROMPT_COMMAND="fill_prompt ; echo -ne \"\a\""
+#ZPS1+='\[\033[01;30m\][\t]\[\033[00m\]'
+# PS1='\n┌──\[\033[35m\]$(parse_git_branch_and_add_cbrackets)\[\033[00m\]'
 #PS1+='\[\033[01;30m\]\u@\[\033[00m\]'
 #PS1+='\[\033[32m\]\h\[\033[00m\]:'
-PS1+='\[\033[34m\]$(eval "shorten_path")\[\033[00m\]'
-PS1+='\[\033[33m\]$(return_android_serial)\[\033[00m\]'
-PS1=$(tmux_decoration $PS1)
-PS1+='\$ '
+# PS1+='─┤\[\033[34m\]$(eval "shorten_path")\[\033[00m\]├─'
+# PS1+='\[\033[33m\]$(return_android_serial)\[\033[00m\]'
+# PS1+='─┤\t├─'
+PS1='\n┌─\[\033[1;31m\]$ZEXIT\[\033[00m\]─\[\033[35m\]$ZGIT\[\033[00m\]'
+PS1+='┤\[\033[34m\]$ZPATH\[\033[00m\]├'
+PS1+='\[\033[33m\]$ZANDROID_SERIAL\[\033[00m\]'
+PS1+='$ZFILL'
+PS1+='┤\t│'
+# PS1=$(tmux_decoration $PS1)
+PS1+='\n│ '
+PS2='│ '
 
 unset color_prompt force_color_prompt
 
@@ -124,6 +142,7 @@ alias pm="adb shell pm"
 alias am="adb shell am"
 alias viproj="vim +Project"
 alias wiki="vim +VimwikiIndex"
+alias todo="vim ~/wiki/todo.wiki"
 # workaround the startify plugin with a throwaways variable 'a'
 alias diary="vim -c Diary +"
 alias setandroidenv=". setandroidenv"
@@ -186,11 +205,17 @@ bind -m vi-insert "\C-l":clear-screen
 
 export EDITOR=vi
 export BC_ENV_ARGS="-l"
-export PROMPT_COMMAND='echo -ne "\a"'
+# export PROMPT_COMMAND='echo -ne "\a"';fill_prompt
 
 # autojump stuff
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+[[ -s /home/alain/dotfiles/scripts/etc/profile.d/autojump.sh ]] && source /home/alain/dotfiles/scripts/etc/profile.d/autojump.sh
 
 if [ -f ~/.bashrc_local ]; then
   source ~/.bashrc_local
 fi
+
+PATH="/home/alain/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/alain/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/alain/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/alain/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/alain/perl5"; export PERL_MM_OPT;

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /home/aducoulombier/dotfiles/scripts/menu.sh
+. ~/dotfiles/scripts/menu.sh
 
 if [[ $# -lt 1 ]]; then
     boards=`adb devices |grep -v ^List | cut -f1 |tr \n \ `

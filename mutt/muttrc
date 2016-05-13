@@ -38,18 +38,19 @@ bind pager b previous-page
 
 # Don't wait to enter mailbox manually
 # set imap_list_subscribed
-set imap_idle
-set imap_passive
-unset imap_peek
+# set imap_idle
+# set imap_passive
+# set imap_peek
 
-source ~/.mutt/colors.muttrc
+source ~/.mutt/mutt-colors-solarized-light-16.muttrc
 
 #IMAP settings
 # Reduce polling frequency to a sane level
 set mail_check=60
 # And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
 set timeout=10
-set imap_keepalive=100
+set imap_keepalive=10
+# set imap_keepalive=50
 
 # Speed up folder swith
 set sleep_time=0
@@ -68,7 +69,7 @@ set beep_new=yes
 
 # index to see fold thread
 # default mutt index format: set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
-# set index_format="%4C %?H?[%H] ? %Z %X %{%b %d} %-15.15F %?M?(#%03M)&(%4c)? %s"
+set index_format="%4C %?H?[%H] ? %Z %X %{%b %d} %-15.15F %?M?(#%03M)&(%4c)? %s"
 # A great one I used before:
 # set index_format="%4C %?M?+& ?%02M %2e %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 
@@ -99,7 +100,7 @@ set query_command="lbdbq %s* 2>/dev/null"
 ## source "~/.mutt/local"
 ## folder-hook $folder 'source ~/.mutt/local'
 
-# set alias_file=~/.mutt/aliases
+set alias_file=~/.mutt/alias.muttrc
 source $alias_file
 
 ## Account zimbra

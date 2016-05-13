@@ -15,18 +15,19 @@ set incsearch
 set ignorecase
 set smartcase
 set list
-set listchars=tab:>·,trail:·,extends:#,nbsp:· " Highlight problematic whitespace
+set listchars=tab:>·,trail:·,precedes:<,extends:#,nbsp:· " Highlight problematic whitespace
 set ruler
 set tabstop=4
 set shiftwidth=4
-set expandtab  " Majority of files I edit use spaces...
-set bg=dark
+set noexpandtab  " Majority of files I edit doesn't use expand tab anymore :-)
+set bg=light
 set hls
 set modeline
 "r insert * in comments
 "o insert * automaticaly continue comment on a new line
 "c cut text in comments according to textwidth
-set fo+=cro
+"j Join comment by removing trailling comment sign.
+set fo+=croj
 set laststatus=1 "show the status bar on bottom of the screen
 set diffopt=filler,vertical
 set bs=2 "alow the suppression of everything in insert mode
@@ -284,7 +285,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " Plugin: clang_complete {{{3
 " --------------------------------
 " Clone of clang complete https://github.com/Rip-Rip/clang_complete.git
-let g:clang_library_path='/usr/lib/llvm-3.2/lib'
+" let g:clang_library_path='/usr/lib/llvm-3.2/lib'
 let g:clang_snippets = 1
 let g:clang_snippets_engine = 'ultisnips'
 " /clang_complete/ }}}3
@@ -294,6 +295,13 @@ let g:clang_snippets_engine = 'ultisnips'
 " --------------------------------
 " Clone of the github https://github.com/MattesGroeger/vim-bookmarks
 " /vim-bookmarks/ }}}3
+
+
+" Plugin: vim-latex {{{3
+" --------------------------------
+" Huge helper library for latex edition
+let g:tex_flavor='latex'
+" /vim-latex/ }}}3
 
 
 " /Plugins/ }}}2
@@ -366,7 +374,8 @@ nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
-nmap <leader>/ :let @/=""
+"nmap <leader>/ :let @/=""
+nmap <leader>/ :nohlsearch<CR>
 
 " Map <F1> to esc
 map <F1> <Esc>
@@ -399,6 +408,7 @@ if has("autocmd")
   autocmd BufRead,BufNewFile *.aidl set filetype=java
   autocmd BufRead,BufNewFile *.S set ts=8 filetype=armasm
   autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufNewFile *.sh exe "1s;^;#!/bin/env sh"
 
 endif  " has("autocmd")
 

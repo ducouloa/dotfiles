@@ -1,6 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/python2.7
 import os
 import sys
+import subprocess
 from icalendar import Calendar
 
 #  STORE_PATH = os.path.join(os.getenv('HOME'), 'dotfiles/scripts/acal/tmp/')
@@ -9,6 +10,7 @@ from icalendar import Calendar
 
 HOME = os.getenv('HOME')
 MY_AGENDA = HOME + '/.local/share/acal/acal.ics'
+SED_TRANSLATOR = HOME + '/dotfiles/scripts/acal/translate_tz.sh'
 
 
 def add_to_new_calendar(event):
@@ -47,3 +49,7 @@ if os.path.exists(MY_AGENDA):
 #  Write the update general calendar to file
 with open(MY_AGENDA, 'w+') as gen_cal:
     gen_cal.write(new_cal.to_ical())
+
+
+# translate the exotic timezone into correct format
+subprocess.call([SED_TRANSLATOR, MY_AGENDA])

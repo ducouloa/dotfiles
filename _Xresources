@@ -1,13 +1,11 @@
 ! vim: filetype=xdefaults
 !Comment for Xresources
 
-#include ".Xresources_local"
+#include "/home/alain/dotfiles/Xresources/URxvt"
 
-#include "dotfiles/Xresources/URxvt"
-
-#include "dotfiles/Xresources/XTerm"
+#include "/home/alain/dotfiles/Xresources/XTerm"
 
 Xpdf*fontList: -*-terminus-medium-r-*-*-*-120-*-*-*-*
-Xpdf*Background: #657b83
-Xpdf*Foreground: #002b36
-Xpdf.matteColor: #073642
+Xpdf*Background: #fdf6e3
+Xpdf*Foreground: #657b83
+Xpdf.matteColor: #fdf6e3
